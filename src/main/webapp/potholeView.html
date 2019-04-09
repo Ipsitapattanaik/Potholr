@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Potholr</title>
@@ -10,6 +11,7 @@
 <c:url var="jqTimeagoJs" value="/js/jquery.timeago.js" />
 <c:url var="popperJs" value="/js/popper.min.js" />
 <c:url var="bootstrapJs" value="/js/bootstrap.min.js" />
+<c:url var="potholeJs" value="js/pothole.js" />
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/site.css">
@@ -23,10 +25,19 @@
 
 
 
+
 </head>
+
 <body>
-	<nav class="navbar">
+	
+	<nav class="navbar" id="main-navbar">
 			<h1 id="main-title">Potholr</h1>
+			<h3 id="login"></h3>
+			<h3 id="signup"></h3>
+			<h3 id="report-pothole"></h3>
+			<h3 id="update-pothole"></h3>
+			<h3 id="schedule-maintenance"></h3>
+			<h3 id="logout"></h3>
 	</nav>
 
 	<div class="container">
@@ -55,3 +66,4 @@
 		</footer>
 	</body>
 </html>
+<script src="js/pothole.js"></script>
