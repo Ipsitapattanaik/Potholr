@@ -21,91 +21,37 @@
 <script src="${popperJs}"></script>
 <script src="${bootstrapJs}"></script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("time.timeago").timeago();
-
-		$("#logoutLink").click(function(event) {
-			$("#logoutForm").submit();
-		});
-
-		var pathname = window.location.pathname;
-		$("nav a[href='" + pathname + "']").parent().addClass("active");
-
-	});
-</script>
-
 
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#"> 
-			<c:url var="homePageHref" value="/" />
-			<c:url var="imgSrc" value="/img/placeholder.png" /> 
-			<a href="${homePageHref}"><img src="${imgSrc}" class="img-fluid" style="height: 50px;" /></a>
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<nav class="navbar">
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<c:url var="homePageHref" value="/" />
-				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
-
-				<c:if test="${not empty currentUser}">
-					<c:url var="dashboardHref" value="/users/${currentUser}" />
-					<li class="nav-item"><a class="nav-link" href="${dashboardHref}">Private Messages</a></li>
-					<c:url var="newMessageHref"
-						value="/users/${currentUser}/messages/new" />
-					<li class="nav-item"><a class="nav-link" href="${newMessageHref}">New Message</a></li>
-					<c:url var="sentMessagesHref"
-						value="/users/${currentUser}/messages" />
-					<li class="nav-item"><a class="nav-link" href="${sentMessagesHref}">Sent Messages</a></li>
-					<c:url var="changePasswordHref"
-						value="/users/${currentUser}/changePassword" />
-					<li class="nav-item"><a class="nav-link" href="${changePasswordHref}">Change Password</a></li>
-				</c:if>
-			</ul>
-			<ul class="navbar-nav ml-auto">
-				<c:choose>
-					<c:when test="${empty currentUser}">
-						<c:url var="newUserHref" value="/users/new" />
-						<li class="nav-item"><a class="nav-link" href="${newUserHref}">Sign Up</a></li>
-						<c:url var="loginHref" value="/login" />
-						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log In</a></li>
-					</c:when>
-					<c:otherwise>
-						<c:url var="logoutAction" value="/logout" />
-						<form id="logoutForm" action="${logoutAction}" method="POST">
-							<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-						</form>
-						<li class="nav-item"><a id="logoutLink" href="#">Log Out</a></li>
-					</c:otherwise>
-				</c:choose>
-			</ul>
-		</div>
 	</nav>
 
-	<c:if test="${not empty currentUser}">
-		<p id="currentUser">Current User: ${currentUser}</p>
-	</c:if>
 	<div class="container">
-        
-    
-    <div class="map">
-        
-    </div>
-    
-    
+				<h3>My Google Maps Demo</h3>
+				<!--The div element for the map -->
+				<div id="map"></div>
+				<script>
+		// Initialize and add the map
+		function initMap() {
+			// The location of Pittsburgh
+			var pittsburgh = {lat: 40.4406, lng: -79.9959};
+			// The map, centered in Pittsburgh
+			var map = new google.maps.Map(
+					document.getElementById('map'), {zoom: 11, center: pittsburgh});
+			// The marker, positioned at Pittsburgh
+			var marker = new google.maps.Marker({position: pittsburgh, map: map});
+		}
+				</script>
+				<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
+				</script>
     </div>
 		
 		<footer>
-			Copyright 2016 Critter Inc.
+			Copyright 2019 Prestige Worldwide
 		</footer>
 	</body>
 </html>
