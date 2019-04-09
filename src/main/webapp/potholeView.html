@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Potholr</title>
+<c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
+<c:url var="siteCss" value="/css/site.css" />
+
+<c:url var="jQueryJs" value="/js/jquery.min.js" />
+<c:url var="jqValidateJs" value="/js/jquery.validate.min.js" />
+<c:url var="jqvAddMethJs" value="/js/additional-methods.min.js" />
+<c:url var="jqTimeagoJs" value="/js/jquery.timeago.js" />
+<c:url var="popperJs" value="/js/popper.min.js" />
+<c:url var="bootstrapJs" value="/js/bootstrap.min.js" />
+<c:url var="potholeJs" value="js/pothole.js" />
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/site.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/additional-methods.min.js"></script>
+<script src="js/jquery.timeago.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+	
+	<nav class="navbar" id="main-navbar">
+			<h1 id="main-title">Potholr</h1>
+			<h3 id="login"></h3>
+			<h3 id="signup"></h3>
+			<h3 id="report-pothole"></h3>
+			<h3 id="update-pothole"></h3>
+			<h3 id="schedule-maintenance"></h3>
+			<h3 id="logout"></h3>
+	</nav>
+
+	<div class="container">
+				<h3 id ="map-title">Potholr</h3>
+				<!--The div element for the map -->
+				<div id="map"></div>
+				<script>
+		// Initialize and add the map
+		function initMap() {
+			// The location of Pittsburgh
+			var pittsburgh = {lat: 40.4406, lng: -79.9959};
+			// The map, centered in Pittsburgh
+			var map = new google.maps.Map(
+					document.getElementById('map'), {zoom: 11, center: pittsburgh});
+			// The marker, positioned at Pittsburgh
+			var marker = new google.maps.Marker({position: pittsburgh, map: map});
+		}
+				</script>
+				<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
+				</script>
+    </div>
+		
+		<footer>
+			Copyright 2019 Prestige Worldwide
+		</footer>
+	</body>
+</html>
+<script src="js/pothole.js"></script>
