@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<c:url var="formAction" value="/users" />
+<c:url var="formAction" value="/Users/userDashboard" />
 <form method="POST" action="${formAction}" enctype="multipart/form-data">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 	<div class="row">
@@ -25,20 +25,15 @@
 			</div>
 			<div class="form-group">
 				<label for="severity">Severity: </label>
-				<input type="checkbox" name="1" value=""> 
-				<input type="checkbox" name="2" value=""> 
-				<input type="checkbox" name="3" value=""> 
-				<input type="severity" id="severity" name="severity" placeHolder="Severity" class="form-control" />
+				<select name="select" id="slectboxid">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label for="confirmPassword">Confirm Password: </label>
-				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
-			</div>
-			<div class="form-group">
-				<h3>File Upload:</h3>
-      			Select a file to upload: <br />
-      			<form action = "UploadServlet" method = "post"
-         		enctype = "multipart/form-data">
+				<h3>Photo Upload:</h3>
+      			Select a photo to upload: <br />
          		<input type = "file" name = "file" size = "50" />
          		<br />
 			</div>

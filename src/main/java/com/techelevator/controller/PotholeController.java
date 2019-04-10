@@ -70,12 +70,14 @@ public class PotholeController {
 	@RequestMapping(path = "/Potholes/report", method = RequestMethod.GET)
 	public String showReport(Model model, HttpSession session, RedirectAttributes attr) {
 
-		String currentUser = (String) session.getAttribute("currentUser");
+//		String currentUser = (String) session.getAttribute("currentUser");
 
-		if (currentUser != null) {
-			return "/Potholes/reportPothole";
-		} else {
-			return "redirect:/User/login";
-		}
+		return "/Potholes/report";
+
+//		if (currentUser != null) {
+//			return "/Potholes/reportPothole";
+//		} else {
+//			return "redirect:/User/login";
+//		}
 	}
 }
