@@ -32,22 +32,40 @@ public class UserController {
 		return "Users/newUser";
 	}
 	
-//	@RequestMapping(path="/Users/login", method=RequestMethod.POST)
-//	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
-//		if(result.hasErrors()) {
-//			flash.addFlashAttribute("user", user);
-//			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
-//			return "redirect:/Users/new";
-//		}
-//		
-//		userDAO.saveUser(user.getUserName(), user.getPassword());
-//		return "redirect:/Users/login";
-//	}
 
 	@RequestMapping(path="/Users/login", method=RequestMethod.GET)
 	public String displayLoginUser(ModelMap modelHolder) {
 		return "Users/login";
 	}
+
+
+	@RequestMapping(path="/Users/login", method=RequestMethod.POST)
+	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
+		System.out.println("Entering the POST method");
+		System.out.println("******************************************");
+		System.out.println(user.getUserName() + "  " + user.getPassword());
+		
+		
+//		if(result.hasErrors()) {
+//			flash.addFlashAttribute("user", user);
+//			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+//			return "redirect:/Users/newUser";
+//		}
+		System.out.println("Before saving");
+		
+		userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
+		
+		//Need to start the session with a user
+//
+//		//		userDAO.saveUser(user.getUserName(), user.getPassword());
+		System.out.println("After saving");
+		return "redirect:/Users/userDashboard";
+	}
 	
+	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.GET)
+	public String displayUserDashboard(ModelMap modelHolder) {
+		return "Users/userDashboard";
+	}	
+
 	
 }

@@ -1,7 +1,7 @@
 		</div>
 		
 		<footer>
-			Copyright 2016 Critter Inc.
+			Copyright 2019 - Team 404.
 		</footer>
 	</body>
 </html>
