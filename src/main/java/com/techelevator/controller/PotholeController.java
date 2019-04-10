@@ -24,7 +24,7 @@ public class PotholeController {
 	@Autowired
 	PotholeDAO potholeDAO;
 
-	@RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
+	@RequestMapping(path = "/Potholes/allPotholes", method = RequestMethod.GET)
 	public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy, HttpSession session) {
 
 		if (session.getAttribute("isEmployee") == null)
@@ -36,18 +36,18 @@ public class PotholeController {
 
 		model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(orderBy));
 
-		return "/potholes/allPotholes";
+		return "/Potholes/allPotholes";
 	}
 
-	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.GET)
+	@RequestMapping(path = "/Potholes/employeePotholeUpdate", method = RequestMethod.GET)
 	public String employeeModifyPotholeGet(Model model, @RequestParam long potholeId) {
 
 		model.addAttribute("pothole", potholeDAO.getPotholeById(potholeId));
 
-		return "/potholes/employeePotholeUpdate";
+		return "/Potholes/employeePotholeUpdate";
 	}
 
-	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.POST)
+	@RequestMapping(path = "/Potholes/employeePotholeUpdate", method = RequestMethod.POST)
 	public String employeeModifyPotholePost(@RequestParam long potholeId, @RequestParam int severity,
 			@RequestParam String statusCode,
 			@RequestParam("statusDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date statusDate) {
@@ -56,26 +56,26 @@ public class PotholeController {
 
 		potholeDAO.updatePotholeById(statusCode, localDate, severity, potholeId);
 
-		return "redirect:/potholes/allPotholes";
+		return "redirect:/Potholes/allPotholes";
 	}
 
-	@RequestMapping(path = "/potholes/deletePothole", method = RequestMethod.POST)
+	@RequestMapping(path = "/Potholes/deletePothole", method = RequestMethod.POST)
 	public String employeeDeletePothole(@RequestParam long potholeId) {
 
 		potholeDAO.deletePotholeById(potholeId);
 
-		return "redirect:/potholes/allPotholes";
+		return "redirect:/Potholes/allPotholes";
 	}
 
-	@RequestMapping(path = "/potholes/report", method = RequestMethod.GET)
+	@RequestMapping(path = "/Potholes/report", method = RequestMethod.GET)
 	public String showReport(Model model, HttpSession session, RedirectAttributes attr) {
 
 		String currentUser = (String) session.getAttribute("currentUser");
 
 		if (currentUser != null) {
-			return "/potholes/report";
+			return "/Potholes/reportPothole";
 		} else {
-			return "redirect:/user/login";
+			return "redirect:/User/login";
 		}
 	}
 }

@@ -26,6 +26,29 @@ function showLogin(){
 
 function showSignUp(){
     document.getElementById('signup').innerHTML='Sign Up';
+    document.getElementById('signup').addEventListener("click", function (showSignUpForm) {
+        let form=document.createElement("form");
+        form.setAttribute('method', "post");
+        form.setAttribute('action', "submit");
+        let usernameSignUp=document.createElement("input");
+        usernameSignUp.setAttribute('type', "text");
+        usernameSignUp.setAttribute('name', "usernameSignUp");
+        let passwordSignUp=document.createElement("input");
+        passwordSignUp.setAttribute('type',"text");
+        passwordSignUp.setAttribute('name',"password");
+        // let isEmployeeCheckbox=document.createElement("input");
+        // isEmployeeCheckbox.type = "checkbox"; 
+        // isEmployeeCheckbox.name = "name"; 
+        // isEmployeeCheckbox.value = "value"; 
+        // isEmployeeCheckbox.id = "id";
+        //var checkboxLabel = document.createElement('checkboxLabel');
+        //checkboxLabel.appendChild(document.createTextNode('Check if employee.')); 
+        form.appendChild(usernameSignUp);
+        form.appendChild(password);
+        //form.appendChild(isEmployeeCheckbox);
+        //form.appendChild(checkBoxLabel);
+        document.getElementById('main-navbar').appendChild(form);
+    });
 }
 
 function showReportPothole(){
