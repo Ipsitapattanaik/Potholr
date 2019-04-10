@@ -23,15 +23,15 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	public List<Pothole> getListOfPotholes(String orderBy) {
 	List<Pothole> potholeList = new ArrayList<Pothole>();
 	//avoid sql injection attack
-	String sqlGetAllPotHoles = "";
+	String sqlGetAllPotholes = "";
 	if (orderBy.equals("severity") || orderBy.equals("report_Date") || orderBy.equals("status_Code")) {
-	sqlGetAllPotHoles = "SELECT * FROM pothole ORDER BY " + orderBy + " DESC";
+	sqlGetAllPotholes = "SELECT * FROM pothole ORDER BY " + orderBy + " DESC";
 	} else if (orderBy.equals("street_Name")) {
-	sqlGetAllPotHoles = "SELECT * FROM pothole ORDER BY " + orderBy;
+	sqlGetAllPotholes = "SELECT * FROM pothole ORDER BY " + orderBy;
 	}
 
 	    Pothole thePothole;
-	    SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllPotHoles);
+	    SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllPotholes);
 	    while (results.next()) {
 	        thePothole = mapRowToPothole(results);
 	        potholeList.add(thePothole);
@@ -44,7 +44,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	public void reportPothole(Pothole newPothole) {
 		String sqlUpdate = "INSERT INTO pothole (pothole_Id, street_Name, lat, lng) " + " VALUES (?,?,?,?) ";
 
-		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreet_Name(), newPothole.getLat(),
+		jdbcTemplate.update(sqlUpdate, getNextPotholeId(), newPothole.getStreet_Name(), newPothole.getLat(),
 				newPothole.getLng());
 	}
 
@@ -52,7 +52,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 	@Override
 	public Pothole getPotholeById(Long pothole_Id) {
-		String sqlGetUserPothole = "SELECT * FROM pothole WHERE pothole_id = ?";
+		String sqlGetUserPothole = "SELECT * FROM pothole WHERE pothole_Id = ?";
 		Pothole thePothole = new Pothole();
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetUserPothole, pothole_Id);
@@ -65,7 +65,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	@Override
 	public void updatePotholeById(String status_Code, LocalDate status_Date, int severity, Long pothole_Id) {
 		String sqlUpdatePothole = "UPDATE pothole " + "SET status_Code = ?, status_Date = ?, severity = ? "
-				+ "WHERE pothole_id = ? ";
+				+ "WHERE pothole_Id = ? ";
 		jdbcTemplate.update(sqlUpdatePothole, status_Code, status_Date, severity, pothole_Id);
 
 	}
@@ -76,8 +76,8 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		jdbcTemplate.update(sqlDeletePothole, pothole_Id);
 	}
 
-	public long getNextPotHoleId() {
-		SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('pothole_pothole_id_seq')");
+	public long getNextPotholeId() {
+		SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('pothole_pothole_Id_seq')");
 		if (nextIdResult.next()) {
 			return nextIdResult.getLong(1);
 		} else {
