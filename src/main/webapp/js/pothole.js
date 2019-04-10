@@ -21,7 +21,8 @@ function showLogin(){
         form.appendChild(password);
         form.appendChild(submit);
         document.getElementById('main-navbar').appendChild(form);
-        document.getElementById('login').removeEventListener("click", function(showLoginForm){});
+        document.getElementById('login').removeEventListener("click", function(showLoginForm){
+        });
 })};
 
 function showSignUp(){
