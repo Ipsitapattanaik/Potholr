@@ -72,4 +72,12 @@ public class JDBCUserDAO implements UserDAO {
 		return thisUser;
 	}
 
+	//@Override
+	public boolean seeIfUserIsEmployee(String userName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
 }
