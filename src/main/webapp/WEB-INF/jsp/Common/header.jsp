@@ -75,9 +75,9 @@
 			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty currentUser}">
-						<c:url var="newUserHref" value="/users/new" />
+						<c:url var="newUserHref" value="/Users/new" />
 						<li class="nav-item"><a class="nav-link" href="${newUserHref}">Sign Up</a></li>
-						<c:url var="loginHref" value="/login" />
+						<c:url var="loginHref" value="/Users/login" />
 						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log In</a></li>
 					</c:when>
 					<c:otherwise>

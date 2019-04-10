@@ -24,7 +24,7 @@ public class PotholeController {
 	@Autowired
 	private PotholeDAO potholeDAO;
 
-	@RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
+	@RequestMapping(path = "/Potholes/allPotholes", method = RequestMethod.GET)
 	public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy, HttpSession session) {
 
 		if (session.getAttribute("isEmployee") == null)
@@ -36,7 +36,7 @@ public class PotholeController {
 
 		model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(orderBy));
 
-		return "/potholes/allPotholes";
+		return "/Potholes/allPotholes";
 	}
 
 	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.GET)
@@ -44,10 +44,10 @@ public class PotholeController {
 
 		model.addAttribute("pothole", potholeDAO.getPotholeById(pothole_Id));
 
-		return "/potholes/employeePotholeUpdate";
+		return "/Potholes/employeePotholeUpdate";
 	}
 
-	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.POST)
+	@RequestMapping(path = "/Potholes/employeePotholeUpdate", method = RequestMethod.POST)
 	public String employeeModifyPotholePost(@RequestParam long pothole_Id, @RequestParam int severity,
 			@RequestParam String status_Code,
 			@RequestParam("status_Date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date status_Date) {
@@ -56,7 +56,7 @@ public class PotholeController {
 
 		potholeDAO.updatePotholeById(status_Code, localDate, severity, pothole_Id);
 
-		return "redirect:/potholes/allPotholes";
+		return "redirect:/Potholes/allPotholes";
 	}
 
 	@RequestMapping(path = "/potholes/deletePothole", method = RequestMethod.POST)
