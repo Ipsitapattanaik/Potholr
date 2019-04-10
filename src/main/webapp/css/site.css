@@ -24,6 +24,22 @@ nav{
     margin-left: 20px;
 }
 
+#report-pothole{
+    margin-left: 20px;
+}
+
+#update-pothole{
+    margin-left: 20px;
+}
+
+#schedule-maintenance{
+    margin-left: 20px;
+}
+
+#logout{
+    margin-left: 20px;
+}
+
 form{
     color:#00adee;
 }

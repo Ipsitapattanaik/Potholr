@@ -22,7 +22,7 @@ import java.util.Date;
 public class PotholeController {
 
 	@Autowired
-	PotholeDAO potholeDAO;
+	private PotholeDAO potholeDAO;
 
 	@RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
 	public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy, HttpSession session) {
