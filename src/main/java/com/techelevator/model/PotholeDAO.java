@@ -1,21 +1,21 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface PotholeDAO {
 	
-	public List <Pothole> getListOfPotholeById(Long Id);
+	public List <Pothole> getListOfPotholes(String orderBy);
 	
-	//public void reportPothole(new pothole);
+	public void reportPothole(Pothole newPothole);
 	
-	public Pothole getPotholeById(Long Id);
+	public Pothole getPotholeById(Long pothole_Id);
 
-	public void updatePotholeById(Long Id);
+	public void updatePotholeById(String statusCode, LocalDate statusDate, int severity, Long pothole_Id);
 
-	public void deletePotholeById(Long Id);
+	public void deletePotholeById(Long pothole_Id);
 
 	
-	
-	
-
 }
+
+
