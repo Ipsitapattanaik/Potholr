@@ -22,7 +22,7 @@ import java.util.Date;
 public class PotholeController {
 
 	@Autowired
-	PotholeDAO potholeDAO;
+	private PotholeDAO potholeDAO;
 
 	@RequestMapping(path = "/Potholes/allPotholes", method = RequestMethod.GET)
 	public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy, HttpSession session) {
@@ -39,30 +39,30 @@ public class PotholeController {
 		return "/Potholes/allPotholes";
 	}
 
-	@RequestMapping(path = "/Potholes/employeePotholeUpdate", method = RequestMethod.GET)
-	public String employeeModifyPotholeGet(Model model, @RequestParam long potholeId) {
+	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.GET)
+	public String employeeModifyPotholeGet(Model model, @RequestParam long pothole_Id) {
 
-		model.addAttribute("pothole", potholeDAO.getPotholeById(potholeId));
+		model.addAttribute("pothole", potholeDAO.getPotholeById(pothole_Id));
 
 		return "/Potholes/employeePotholeUpdate";
 	}
 
 	@RequestMapping(path = "/Potholes/employeePotholeUpdate", method = RequestMethod.POST)
-	public String employeeModifyPotholePost(@RequestParam long potholeId, @RequestParam int severity,
-			@RequestParam String statusCode,
-			@RequestParam("statusDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date statusDate) {
+	public String employeeModifyPotholePost(@RequestParam long pothole_Id, @RequestParam int severity,
+			@RequestParam String status_Code,
+			@RequestParam("status_Date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date status_Date) {
 
-		LocalDate localDate = statusDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate localDate = status_Date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-		potholeDAO.updatePotholeById(statusCode, localDate, severity, potholeId);
+		potholeDAO.updatePotholeById(status_Code, localDate, severity, pothole_Id);
 
 		return "redirect:/Potholes/allPotholes";
 	}
 
-	@RequestMapping(path = "/Potholes/deletePothole", method = RequestMethod.POST)
-	public String employeeDeletePothole(@RequestParam long potholeId) {
+	@RequestMapping(path = "/potholes/deletePothole", method = RequestMethod.POST)
+	public String employeeDeletePothole(@RequestParam long pothole_Id) {
 
-		potholeDAO.deletePotholeById(potholeId);
+		potholeDAO.deletePotholeById(pothole_Id);
 
 		return "redirect:/Potholes/allPotholes";
 	}

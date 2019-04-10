@@ -24,24 +24,29 @@ public class UserController {
 		this.userDAO = userDAO;
 	}
 
-	@RequestMapping(path="/users/new", method=RequestMethod.GET)
+	@RequestMapping(path="/Users/new", method=RequestMethod.GET)
 	public String displayNewUserForm(ModelMap modelHolder) {
 		if( ! modelHolder.containsAttribute("user")) {
 			modelHolder.addAttribute("user", new User());
 		}
-		return "newUser";
+		return "Users/newUser";
 	}
 	
-	@RequestMapping(path="/users", method=RequestMethod.POST)
-	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
-		if(result.hasErrors()) {
-			flash.addFlashAttribute("user", user);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
-			return "redirect:/users/new";
-		}
-		
-		userDAO.saveUser(user.getUserName(), user.getPassword());
-		return "redirect:/login";
+//	@RequestMapping(path="/Users/login", method=RequestMethod.POST)
+//	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
+//		if(result.hasErrors()) {
+//			flash.addFlashAttribute("user", user);
+//			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+//			return "redirect:/Users/new";
+//		}
+//		
+//		userDAO.saveUser(user.getUserName(), user.getPassword());
+//		return "redirect:/Users/login";
+//	}
+
+	@RequestMapping(path="/Users/login", method=RequestMethod.GET)
+	public String displayLoginUser(ModelMap modelHolder) {
+		return "Users/login";
 	}
 	
 	

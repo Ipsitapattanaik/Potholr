@@ -43,3 +43,10 @@ nav{
 form{
     color:#00adee;
 }
+
+html, body {
+height: 80%;
+margin: 30px;
+padding: 0;
+}
+
