@@ -1,11 +1,11 @@
 nav{
-    background-color: #3b3e42;
-    color:#fff;
+    background-color: #ffb81c;
+    color:#003595;
 }
 
 #map {
-    height: 500px;  /* The height is 400 pixels */
-    width: 100%;  /* The width is the width of the web page */
+    height: 500px;  
+    width: 100%;
     }
 
 #map-title{
@@ -41,10 +41,6 @@ nav{
 }
 
 form{
-    color:#00adee;
-}
-
-btn{
     color:#00adee;
 }
 
