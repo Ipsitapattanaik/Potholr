@@ -65,8 +65,8 @@ public class UserController {
 	    }
 
 		System.out.println("******************************************");
-		System.out.println(user.getUserName() + "  " + user.getEmail() + " "+ user.getPhoneNumber() + " " + user.getPassword() + " " + user.isEmployee());
-		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhoneNumber(), user.getPassword(), user.isEmployee());
+		System.out.println(user.getUserName() + "  " + user.getEmail() + " "+ user.getPhone() + " " + user.getPassword() + " " + user.isEmployee());
+		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhone(), user.getPassword(), user.isEmployee());
 		
 		return "redirect:/Users/userDashboard";
 	}
