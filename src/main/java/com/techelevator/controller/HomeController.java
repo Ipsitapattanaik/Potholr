@@ -17,18 +17,18 @@ public class HomeController {
 	@RequestMapping(path="/about")
 	public String displayAboutPage(ModelMap modelHolder) {
 
-		return "Home";
+		return "about";
 	}
 	
 	@RequestMapping(path="/contact")
 	public String displayContactPage(ModelMap modelHolder) {
 
-		return "Home";
+		return "contact";
 	}
 	
 	@RequestMapping(path="/careers")
 	public String displayCareersPage(ModelMap modelHolder) {
 
-		return "Home";
+		return "careers";
 	}
 }

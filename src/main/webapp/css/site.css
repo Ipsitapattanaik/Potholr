@@ -1,6 +1,7 @@
 nav{
     background-color: #ffb81c;
     color:#003595;
+    padding:20px;
 }
 
 a{
@@ -13,44 +14,20 @@ a{
     }
 
 #map-title{
-    color:#3b3e42;
+    color:#000033;
 }    
-
-#main-title{
-    margin-left: 20px;
-}
-
-#login{
-    margin-left: 20px;
-}
-
-#signup{
-    margin-left: 20px;
-}
-
-#report-pothole{
-    margin-left: 20px;
-}
-
-#update-pothole{
-    margin-left: 20px;
-}
-
-#schedule-maintenance{
-    margin-left: 20px;
-}
-
-#logout{
-    margin-left: 20px;
-}
 
 form{
     color:#00adee;
 }
 
 html, body {
-height: 80%;
-margin: 30px;
+height: 95%;
+margin: 0px;
 padding: 0;
+background-color:#e5e5cb;
 }
 
+footer{
+    padding: 20px;
+}
