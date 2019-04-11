@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+    
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+<c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<c:url var="formAction" value="/users" />
+<c:url var="formAction" value="/Users/userDashboard" />
 <form method="POST" action="${formAction}" enctype="multipart/form-data">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 	<div class="row">
@@ -22,23 +19,20 @@
 				<input type="text" id="state" name="state" placeHolder="State" class="form-control" />
 				<input type="text" id="zipCode" name="zipCode" placeHolder="Zip code" class="form-control" />
 				<input type="text" id="country" name="country" placeHolder="Country" class="form-control" />
+				<input type="text" id="lat" name="lng" placeHolder="Latitude" class="form-control"/>
+				<input type="text" id="lng" name="lng" placeHolder="Longitude" class="form-control"/>
 			</div>
 			<div class="form-group">
-				<label for="severity">Severity: </label>
-				<input type="checkbox" name="1" value=""> 
-				<input type="checkbox" name="2" value=""> 
-				<input type="checkbox" name="3" value=""> 
-				<input type="severity" id="severity" name="severity" placeHolder="Severity" class="form-control" />
+				<label for="severity">Severity (1-least severe, 3-most severe): </label>
+				<select name="select" id="slectboxid">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label for="confirmPassword">Confirm Password: </label>
-				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
-			</div>
-			<div class="form-group">
-				<h3>File Upload:</h3>
-      			Select a file to upload: <br />
-      			<form action = "UploadServlet" method = "post"
-         		enctype = "multipart/form-data">
+				<h3>Photo Upload:</h3>
+      			Select a photo to upload: <br />
          		<input type = "file" name = "file" size = "50" />
          		<br />
 			</div>
@@ -50,3 +44,5 @@
 
 </body>
 </html>
+
+<c:import url="/WEB-INF/jsp/Common/footer.jsp" />

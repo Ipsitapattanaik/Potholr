@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,14 @@ public class UserController {
 	
 	//Handling signup page
 	
+//	@RequestMapping(path="/Users/new", method=RequestMethod.GET)
+//	public String displayNewUserForm(ModelMap modelHolder) {
+//		if( ! modelHolder.containsAttribute("user")) {
+//			modelHolder.addAttribute("user", new User());
+//		}
+//		return "Users/newUser";
+//	}
+
 	@RequestMapping(path="/Users/new", method=RequestMethod.GET)
 	public String displayNewUserForm(ModelMap modelHolder) {
 		if( ! modelHolder.containsAttribute("user")) {
@@ -38,6 +47,30 @@ public class UserController {
 		}
 		return "Users/newUser";
 	}
+	
+	@RequestMapping(path="/Users/new", method=RequestMethod.POST)
+	public String displayDashBoardForNewlyRegisteredUser(@RequestParam(defaultValue = "false") boolean checkbox,
+			@Valid @ModelAttribute User user, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+//		if( ! modelHolder.containsAttribute("user")) {
+//			modelHolder.addAttribute("user", new User());
+//		}
+
+	    if (checkbox) {
+	    	System.out.println("Checkbox is checked");
+	    	user.setEmployee(true);
+	    }
+	    else {
+	    	System.out.println("Checkbox is UNCHECKED");
+	    	user.setEmployee(false);
+	    }
+
+		System.out.println("******************************************");
+		System.out.println(user.getUserName() + "  " + user.getEmail() + " "+ user.getPhoneNumber() + " " + user.getPassword() + " " + user.isEmployee());
+		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhoneNumber(), user.getPassword(), user.isEmployee());
+		
+		return "redirect:/Users/userDashboard";
+	}
+	
 	
     //Handling login Link
 	
@@ -49,25 +82,23 @@ public class UserController {
 	// post method after submitting the login 
 	
 	@RequestMapping(path="/Users/login", method=RequestMethod.POST)
-	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
-		System.out.println("Entering the POST method");
-		System.out.println("******************************************");
-		System.out.println(user.getUserName() + "  " + user.getPassword());
-		
-		
+	public String createUser(@Valid @ModelAttribute User user, BindingResult result, 
+			RedirectAttributes flash, HttpSession session) {
 //		if(result.hasErrors()) {
 //			flash.addFlashAttribute("user", user);
 //			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
 //			return "redirect:/Users/newUser";
 //		}
-		System.out.println("Before saving");
 		
-		userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
+		User loggedUser = userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
+		session.setAttribute("user", loggedUser);
+//		System.out.println("In the createUser method. The user is " + loggedUser.getUserName());
+//		System.out.println("email " + loggedUser.getEmail());
+//		System.out.println("employee " + loggedUser.isEmployee());
 		
 		//Need to start the session with a user
 //
 //		//		userDAO.saveUser(user.getUserName(), user.getPassword());
-		System.out.println("After saving");
 		return "redirect:/Users/userDashboard";
 	}
 	
@@ -81,7 +112,12 @@ public class UserController {
 
 	
 	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.GET)
-	public String displayUserDashboard(ModelMap modelHolder) {
+	public String displayUserDashboard(ModelMap modelHolder, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+//		System.out.println("In the displayUserDashboard method. The user is " + user.getUserName());
+//		System.out.println("email " + user.getEmail());
+//		System.out.println("employee " + user.isEmployee());
 		return "Users/userDashboard";
 	}	
 	

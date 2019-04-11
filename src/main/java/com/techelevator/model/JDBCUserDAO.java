@@ -24,17 +24,20 @@ public class JDBCUserDAO implements UserDAO {
 	}
 	
 	@Override
-	public void saveUser(String userName, String password) {
-		byte[] salt = hashMaster.generateRandomSalt();
-		String hashedPassword = hashMaster.computeHash(password, salt);
-		String saltString = new String(Base64.encode(salt));
+	public void saveUser(String userName, String email, String phoneNumber, String password, boolean isEmployee) {
+//		byte[] salt = hashMaster.generateRandomSalt();
+//		String hashedPassword = hashMaster.computeHash(password, salt);
+//		String saltString = new String(Base64.encode(salt));
+//		
+//		jdbcTemplate.update("INSERT INTO app_user(user_name, password, salt) VALUES (?, ?, ?)",
+//				userName, hashedPassword, saltString);
+		String sqlInsertStatement = "INSERT INTO app_user (user_name, email, phone, password, is_employee) VALUES (?, ?, ?, ?, ?);";
+		jdbcTemplate.update(sqlInsertStatement, userName, email, phoneNumber, password, isEmployee);
 		
-		jdbcTemplate.update("INSERT INTO app_user(user_name, password, salt) VALUES (?, ?, ?)",
-				userName, hashedPassword, saltString);
 	}
 
 	@Override
-	public boolean searchForUsernameAndPassword(String userName, String password) {
+	public User searchForUsernameAndPassword(String userName, String password) {
 		System.out.println("Enter the searchForUsernameAndPassword");
 		String sqlSearchForUser = "SELECT * "+
 							      "FROM app_user "+
@@ -49,11 +52,23 @@ public class JDBCUserDAO implements UserDAO {
 //		} else {
 //			return false;
 //		}
+//		if(user.next()) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+		
+		User thisUser = new User();
 		if(user.next()) {
-			return true;
-		} else {
-			return false;
-		}
+			thisUser.setUserId(user.getLong("user_id"));
+			thisUser.setUserName(user.getString("user_name"));
+			thisUser.setPassword(user.getString("password"));
+			thisUser.setEmail(user.getString("email"));
+			thisUser.setPhone(user.getString("phone"));
+			thisUser.setEmployee(user.getBoolean("is_employee"));
+			}
+
+		return thisUser;
 
 	}
 
@@ -74,7 +89,9 @@ public class JDBCUserDAO implements UserDAO {
 			thisUser = new User();
 			thisUser.setUserName(user.getString("user_name"));
 			thisUser.setPassword(user.getString("password"));
-		}
+			thisUser.setEmail(user.getString("email"));
+			thisUser.setPhone(user.getString("phone"));
+			}
 
 		return thisUser;
 	}

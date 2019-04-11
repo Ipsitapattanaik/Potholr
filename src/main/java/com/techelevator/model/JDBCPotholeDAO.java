@@ -40,6 +40,12 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	    }
 	    return potholeList;
 	}
+	
+	@Override
+	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
+		String sqlInsertStatement = "INSERT INTO app_user (street_number, street_name, city, state, zip_code, country, lat, lng) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+		jdbcTemplate.update(sqlInsertStatement, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
+	}
 
 
 	@Override
