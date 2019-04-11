@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-</body>
-</html>
+<c:import url="/WEB-INF/jsp/Common/header.jsp" />
+
+<h1>User Dashboard</h1>
+<h2>Welcome ${user.getUserName}</h2>
+<c:import url="/WEB-INF/jsp/Common/footer.jsp" />

@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<h1>Welcome to the potehole Tracker!</h1>
+<h1>Welcome to Potholr!</h1>
 		
 		<div id="map"></div>
 <script>
