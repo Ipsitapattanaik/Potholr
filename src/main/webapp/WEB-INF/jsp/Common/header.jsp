@@ -14,15 +14,15 @@
 <c:url var="popperJs" value="/js/popper.min.js" />
 <c:url var="bootstrapJs" value="/js/bootstrap.min.js" />
 
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/css/site.css">
+<link rel="stylesheet" type="text/css" href="${bootstrapCss}">
+<link rel="stylesheet" type="text/css" href="${siteCss}">
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/jquery.validate.min.js"></script>
-<script src="/js/additional-methods.min.js"></script>
-<script src="/js/jquery.timeago.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="${jQueryJs}"></script>
+<script src="${jqValidateJs}"></script>
+<script src="${jqvAddMethJs}"></script>
+<script src="${jqTimeagoJs}"></script>
+<script src="${popperJs}"></script>
+<script src="${bootstrapJs}"></script> 
 
 <script type="text/javascript">
 	$(document).ready(function() {
