@@ -51,6 +51,8 @@ INSERT INTO pothole(pothole_Id, user_id, street_Name, street_Number, zip_Code, s
 INSERT INTO pothole(pothole_Id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date,  img_Url) VALUES (5,5, 'Forbes Ave',2112, 15217, 'PA','Pittsburgh', 'USA', '1/25/2018','Inspected', 40.433946, -79.9232, 3, '12/20/2018','12/29/2019', 'http://i.imgur.com/4jA5PpN.jpg');  
 
 
+INSERT INTO pothole(street_number, street_name, city, state, zip_code, country, lat, lng, img_url) VALUES (3, 'Sheridan', 'Williamsport', 'PA', 17701, 'USA', 50, 50, 'fakeURL');
+
 SELECT * FROM pothole;
 SELECT * FROM app_user;
 
