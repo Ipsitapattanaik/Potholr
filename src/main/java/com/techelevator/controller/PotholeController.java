@@ -64,18 +64,20 @@ public class PotholeController {
 
 		potholeDAO.deletePotholeById(pothole_Id);
 
-		return "redirect:/potholes/allPotholes";
+		return "redirect:/Potholes/allPotholes";
 	}
 
-	@RequestMapping(path = "/potholes/report", method = RequestMethod.GET)
+	@RequestMapping(path = "/Potholes/report", method = RequestMethod.GET)
 	public String showReport(Model model, HttpSession session, RedirectAttributes attr) {
 
-		String currentUser = (String) session.getAttribute("currentUser");
+//		String currentUser = (String) session.getAttribute("currentUser");
 
-		if (currentUser != null) {
-			return "/potholes/report";
-		} else {
-			return "redirect:/user/login";
-		}
+		return "/Potholes/report";
+
+//		if (currentUser != null) {
+//			return "/Potholes/reportPothole";
+//		} else {
+//			return "redirect:/User/login";
+//		}
 	}
 }

@@ -32,6 +32,14 @@ public class UserController {
 	
 	//Handling signup page
 	
+//	@RequestMapping(path="/Users/new", method=RequestMethod.GET)
+//	public String displayNewUserForm(ModelMap modelHolder) {
+//		if( ! modelHolder.containsAttribute("user")) {
+//			modelHolder.addAttribute("user", new User());
+//		}
+//		return "Users/newUser";
+//	}
+
 	@RequestMapping(path="/Users/new", method=RequestMethod.GET)
 	public String displayNewUserForm(ModelMap modelHolder) {
 		if( ! modelHolder.containsAttribute("user")) {
@@ -39,6 +47,30 @@ public class UserController {
 		}
 		return "Users/newUser";
 	}
+	
+	@RequestMapping(path="/Users/new", method=RequestMethod.POST)
+	public String displayDashBoardForNewlyRegisteredUser(@RequestParam(defaultValue = "false") boolean checkbox,
+			@Valid @ModelAttribute User user, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+//		if( ! modelHolder.containsAttribute("user")) {
+//			modelHolder.addAttribute("user", new User());
+//		}
+
+	    if (checkbox) {
+	    	System.out.println("Checkbox is checked");
+	    	user.setEmployee(true);
+	    }
+	    else {
+	    	System.out.println("Checkbox is UNCHECKED");
+	    	user.setEmployee(false);
+	    }
+
+		System.out.println("******************************************");
+		System.out.println(user.getUserName() + "  " + user.getEmail() + " "+ user.getPhoneNumber() + " " + user.getPassword() + " " + user.isEmployee());
+		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhoneNumber(), user.getPassword(), user.isEmployee());
+		
+		return "redirect:/Users/userDashboard";
+	}
+	
 	
     //Handling login Link
 	

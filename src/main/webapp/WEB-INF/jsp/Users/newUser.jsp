@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
@@ -35,9 +36,11 @@
 			errorClass : "error"
 		});
 	});
+	
 </script>
 
-<c:url var="formAction" value="/users" />
+
+<c:url var="formAction" value="/Users/new" />
 <form method="POST" action="${formAction}">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 	<div class="row">
@@ -48,13 +51,28 @@
 				<input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
 			</div>
 			<div class="form-group">
+				<label for="email">Email: </label>
+				<input type="text" id="email" name="email" placeHolder="email" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="phoneNumber">Phone number: </label>
+				<input type="text" id="phoneNumber" name="phoneNumber" placeHolder="Phone number" class="form-control" />
+			</div>
+			<div class="form-group">
 				<label for="password">Password: </label>
 				<input type="password" id="password" name="password" placeHolder="Password" class="form-control" />
 			</div>
-			<div class="form-group">
+		<!-- 	<div class="form-group">
 				<label for="confirmPassword">Confirm Password: </label>
 				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
 			</div>
+	 -->		<div class="form-group">
+				<label for="isEmployee">Please check if employee: </label>
+<!-- 			<input type="checkbox" id="isEmployee" name="isEmployee" class="form-control" value=false/>
+	 -->		<input type="checkbox" id="isEmployee" name="checkbox" class="form-control"/>
+<!-- 	 			<input type="checkbox" id="isEmployee" name="isEmployee" class="form-control"/>
+ --><%-- 	 			<form:checkbox id="isEmployee" path="isEmployee" class="form-control"/>
+	 --%>		</div>
 			<button type="submit" class="btn btn-primary">Create User</button>
 		</div>
 		<div class="col-sm-4"></div>

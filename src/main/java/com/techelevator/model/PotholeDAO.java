@@ -15,7 +15,7 @@ public interface PotholeDAO {
 
 	public void deletePotholeById(Long pothole_Id);
 
-	
+	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng);
+
+
 }
-
-
