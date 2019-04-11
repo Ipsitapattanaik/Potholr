@@ -39,10 +39,7 @@
 	
 </script>
 
-<!-- <script type="text/javascript">
-$("#isEmployee").prop('checked', true);
-</script>
- -->
+
 <c:url var="formAction" value="/Users/new" />
 <form method="POST" action="${formAction}">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
@@ -52,6 +49,14 @@ $("#isEmployee").prop('checked', true);
 			<div class="form-group">
 				<label for="userName">User Name: </label>
 				<input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="email">Email: </label>
+				<input type="text" id="email" name="email" placeHolder="email" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="phoneNumber">Phone number: </label>
+				<input type="text" id="phoneNumber" name="phoneNumber" placeHolder="Phone number" class="form-control" />
 			</div>
 			<div class="form-group">
 				<label for="password">Password: </label>

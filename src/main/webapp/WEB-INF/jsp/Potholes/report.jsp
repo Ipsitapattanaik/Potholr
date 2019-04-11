@@ -19,6 +19,8 @@
 				<input type="text" id="state" name="state" placeHolder="State" class="form-control" />
 				<input type="text" id="zipCode" name="zipCode" placeHolder="Zip code" class="form-control" />
 				<input type="text" id="country" name="country" placeHolder="Country" class="form-control" />
+				<input type="text" id="lat" name="lng" placeHolder="Latitude" class="form-control"/>
+				<input type="text" id="lng" name="lng" placeHolder="Longitude" class="form-control"/>
 			</div>
 			<div class="form-group">
 				<label for="severity">Severity (1-least severe, 3-most severe): </label>
