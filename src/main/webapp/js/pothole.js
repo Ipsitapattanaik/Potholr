@@ -4,25 +4,28 @@ let admin=false;
 
 function showLogin(){
     document.getElementById('login').innerHTML='Log In';
-    document.getElementById('login').addEventListener("click", function (showLoginForm){
-        let form=document.createElement("form");
-        form.setAttribute('method',"post");
-        form.setAttribute('action',"submit");
-        let username=document.createElement("input");
-        username.setAttribute('type',"text");
-        username.setAttribute('name',"username");
-        let password=document.createElement("input");
-        password.setAttribute('type',"text");
-        password.setAttribute('name',"password")
-        let submit=document.createElement("input");
-        submit.setAttribute('type',"submit");
-        submit.setAttribute('value',"submit");
-        form.appendChild(username);
-        form.appendChild(password);
-        form.appendChild(submit);
-        document.getElementById('main-navbar').appendChild(form);
-        document.getElementById('login').removeEventListener("click", function(showLoginForm){
-        });
+    document.getElementById('login').addEventListener("click", function (showHideLoginForm){
+        {
+            let form=document.createElement("form");
+            form.setAttribute('method',"post");
+            form.setAttribute('action',"submit");
+            form.setAttribute('autocomplete',"off");
+            let username=document.createElement("input");
+            username.setAttribute('type',"text");
+            username.setAttribute('name',"username");
+            username.setAttribute('placeholder',"Username")
+            let password=document.createElement("input");
+            password.setAttribute('type',"text");
+            password.setAttribute('name',"password");
+            password.setAttribute('placeholder',"Password")
+            let submit=document.createElement("input");
+            submit.setAttribute('type',"submit");
+            submit.setAttribute('value',"submit");
+            form.appendChild(username);
+            form.appendChild(password);
+            form.appendChild(submit);
+            document.getElementById('main-navbar').appendChild(form);
+        };
 })};
 
 function showSignUp(){

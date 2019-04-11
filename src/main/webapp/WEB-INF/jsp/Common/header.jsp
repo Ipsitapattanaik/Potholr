@@ -22,7 +22,7 @@
 <script src="${jqvAddMethJs}"></script>
 <script src="${jqTimeagoJs}"></script>
 <script src="${popperJs}"></script>
-<script src="${bootstrapJs}"></script>
+<script src="${bootstrapJs}"></script> 
 
 <script type="text/javascript">
 	$(document).ready(function() {
