@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+    
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+<c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
 <c:url var="formAction" value="/Users/userDashboard" />
 <form method="POST" action="${formAction}" enctype="multipart/form-data">
@@ -24,7 +21,7 @@
 				<input type="text" id="country" name="country" placeHolder="Country" class="form-control" />
 			</div>
 			<div class="form-group">
-				<label for="severity">Severity: </label>
+				<label for="severity">Severity (1-least severe, 3-most severe): </label>
 				<select name="select" id="slectboxid">
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -45,3 +42,5 @@
 
 </body>
 </html>
+
+<c:import url="/WEB-INF/jsp/Common/footer.jsp" />

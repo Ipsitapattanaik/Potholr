@@ -13,6 +13,14 @@ public class User {
 	})
 	private String password;
 	private String role;
+	private boolean isEmployee;
+	
+	public boolean isEmployee() {
+		return isEmployee;
+	}
+	public void setEmployee(boolean isEmployee) {
+		this.isEmployee = isEmployee;
+	}
 	
 	private String confirmPassword;
 	public String getUserName() {

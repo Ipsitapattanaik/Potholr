@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.model.User;
@@ -30,6 +31,29 @@ public class UserController {
 			modelHolder.addAttribute("user", new User());
 		}
 		return "Users/newUser";
+	}
+	
+	@RequestMapping(path="/Users/new", method=RequestMethod.POST)
+	public String displayDashBoardForNewlyRegisteredUser(@RequestParam(defaultValue = "false") boolean checkbox,
+			@Valid @ModelAttribute User user, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+//		if( ! modelHolder.containsAttribute("user")) {
+//			modelHolder.addAttribute("user", new User());
+//		}
+
+	    if (checkbox) {
+	    	System.out.println("Checkbox is checked");
+	    	user.setEmployee(true);
+	    }
+	    else {
+	    	System.out.println("Checkbox is UNCHECKED");
+	    	user.setEmployee(false);
+	    }
+
+		System.out.println("******************************************");
+		System.out.println(user.getUserName() + "  " + user.getPassword() + " " + user.isEmployee());
+		userDAO.saveUser(user.getUserName(), user.getPassword(), user.isEmployee());
+		
+		return "redirect:/Users/userDashboard";
 	}
 	
 
