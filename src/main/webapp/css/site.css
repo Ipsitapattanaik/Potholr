@@ -12,13 +12,13 @@ display: block;
 }
 nav {
 margin-top: 10px;
-background-color: orange;
+background-color: #ffb81c;
 padding: 1px;
 margin-bottom: 5px;
 }
 
 nav ul li {
-background-color: #cbdee5;
+background-color: black;
 border-radius: 8px;
 list-style: none;
 text-align: center;
@@ -37,7 +37,7 @@ text-align: center;
 }
 
 a{
-color:#003595  ;
+color:#00adee  ;
 
 }
 
@@ -51,7 +51,7 @@ color:#000033;
 }
 
 form{
-color:#00adee;
+color:#003595;
 
 }
 img-fluid{
@@ -67,7 +67,8 @@ html, body {
 }
 
 footer{
-background-color: orange;
+background-color: #ffb81c;
+color: #003595;
 border-radius: 100px;
 list-style: none;
 text-align: center;
@@ -90,4 +91,9 @@ padding: 20px;
 #Message{
     width:100%;
     height:200px;
+}
+
+.page-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
