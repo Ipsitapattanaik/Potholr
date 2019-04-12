@@ -32,7 +32,10 @@
 		<form method="POST" action="${formAction}">
 <%-- 		<input type="hidden" name="destination" value="${param.destination}"/>
 		<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
- --%>			<div class="form-group">
+		
+ --%>	
+ <div id="errorMessage">${UserNotInTheDataBase}</div>
+ 		<div class="form-group">
 				<label for="userName">User Name: </label>
 				<input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
 			</div>

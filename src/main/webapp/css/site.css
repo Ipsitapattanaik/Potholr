@@ -42,7 +42,7 @@ color:#003595  ;
 }
 
 #map {
-height: 400px;
+height: 200px;
 width: 90%;
 }
 
@@ -67,7 +67,7 @@ html, body {
 }
 
 footer{
-background-color: #41c065;
+background-color: orange;
 border-radius: 100px;
 list-style: none;
 text-align: center;
@@ -77,4 +77,9 @@ margin: 30px;
 max-width: 200px;
 padding: 4px;
 padding: 20px;
+
+}
+
+#errorMessage{
+	color:red;
 }

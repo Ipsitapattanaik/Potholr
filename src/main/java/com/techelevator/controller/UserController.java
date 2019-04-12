@@ -89,13 +89,24 @@ public class UserController {
 //			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
 //			return "redirect:/Users/newUser";
 //		}
+
 		
+		User loggedUser = userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
 		
-		userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
+		//if(loogedUser)
+		if(loggedUser.getUserName() == null) {
+			System.out.println("This user is not in the database");
+			flash.addFlashAttribute("UserNotInTheDataBase", "You need to be a registered user to login!");
+			return "redirect:/Users/login";
+			
+		}
+		session.setAttribute("user", loggedUser);
+//		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhone(), user.getPassword(), user.isEmployee());
+
 		
 		//Need to start the session with a user
 //
-//		//		userDAO.saveUser(user.getUserName(), user.getPassword());
+		
 		return "redirect:/Users/userDashboard";
 	}
 	
