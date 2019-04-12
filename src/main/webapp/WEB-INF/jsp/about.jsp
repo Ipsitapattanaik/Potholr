@@ -8,13 +8,16 @@
 
 <h2 class="page-subtitle">Meet the Team</h2>
 
+<c:url var="GroupPicture" value="/img/GroupPicture.jpg"/>
+<img src="${GroupPicture}" style="width:100%"/>
+
 <h3>Caitie Zajko</h3>
 
 <h4>Founder, CEO</h4>
 
 <c:url var="CaitieZajkoLinkedIn" value="https://www.linkedin.com/in/caitie-zajko/"/>
-<c:url var="CaitieZajkoPicture" value="/img/CaitieZajkoPicture.jpeg"/>
-<a href="${CaitieZajkoLinkedIn}"><img src="${CaitieZajkoPicture}" class="about-picture"  /></a>
+<c:url var="CaitieZajkoPicture" value="/img/CaitieZajkoPicture.jpg"/>
+<a href="${CaitieZajkoLinkedIn}"> <img src="${CaitieZajkoPicture}" class="about-picture"  /></a>
 
 <p>Originally from the Greater Philadelphia area, Caitie moved to Pittsburgh in 2009 to pursue an English/Education degree and swim for the Lady Dukes at Duquesne University. She loved the city so much that she decided to stay and hasn't left since!</p>
 <p>Caitie has worked in the greater Pittsburgh area for the last four years. She began her career educating teenagers as a high school English teacher before moving into recruiting, where she helped people secure employment after completing their education. She enjoyed building long-standing relationships with candidates in order to best match them to their perfect role. Caitie is excited to bring her passion for education to Tech Elevator and help students find fulfilling careers in technology.</p>
@@ -25,7 +28,7 @@
 <h4>CTO</h4>
 
 <c:url var="TomAndersonLinkedIn" value="https://www.linkedin.com/in/noctivagan/"/>
-<c:url var="TomAndersonPicture" value="/img/TomAndersonPicture.jpeg"/>
+<c:url var="TomAndersonPicture" value="/img/TomAndersonPicture.jpg"/>
 <a href="${TomAndersonLinkedIn}"><img src="${TomAndersonPicture}" class="about-picture"  /></a>
 
 <p>Tom started his career with Microsoft Corporation where he was Program Manager on Windows 3.11, Windows for Workgroups, Windows 95, and Internet Explorer. After leaving Microsoft in 1995, Tom formed his first consulting company to work with the emerging internet technologies. His company consulted with firms like Microsoft, Heinz, and the Pittsburgh Pirates. Tom was also recruited by Research in Motion to help them evangelize the BlackBerry 10 platform and train application developers. During this time, he also assisted US Steel and the University of Pittsburgh Medical Center with high-security, HIPAA-compliant mobile applications.</p>
@@ -36,7 +39,7 @@
 <h4>Developer</h4>
 
 <c:url var="ArthurLinkedIn" value="https://www.linkedin.com/in/arthurwmueller/"/>
-<c:url var="ArthurPicture" value="/img/ArthurMuellerPicture.jpeg"/>
+<c:url var="ArthurPicture" value="/img/ArthurMuellerPicture.png"/>
 <a href="${ArthurLinkedIn}"><img src="${ArthurPicture}" class="about-picture"  /></a>
 
 <p>Bio Goes Here</p>
@@ -46,7 +49,7 @@
 <h4>Developer</h4>
 
 <c:url var="IpsitaLinkedIn" value="https://www.linkedin.com/in/ipsitapattanaik/"/>
-<c:url var="IpsitaPicture" value="/img/IpsitaPattanaikPicture.jpeg"/>
+<c:url var="IpsitaPicture" value="/img/IpsitaPattanaikPicture.png"/>
 <a href="${IpsitaLinkedIn}"><img src="${IpsitaPicture}" class="about-picture"  /></a>
 
 <p>Bio Goes Here</p>
@@ -56,7 +59,7 @@
 <h4>Developer</h4>
 
 <c:url var="KaelinLinkedIn" value="https://www.linkedin.com/in/kaelin-kamzelski/"/>
-<c:url var="KaelinPicture" value="/img/KaelinKamzelskiPicture.jpeg"/>
+<c:url var="KaelinPicture" value="/img/KaelinKamzelskiPicture.png"/>
 <a href="${KaelinLinkedIn}"><img src="${KaelinPicture}" class="about-picture"  /></a>
 
 <p>Bio Goes Here</p>
@@ -66,17 +69,17 @@
 <h4>Developer</h4>
 
 <c:url var="LiseLinkedIn" value="https://www.linkedin.com/in/lisebilhaut/"/>
-<c:url var="LisePicture" value="/img/LiseBilhautPicture.jpeg"/>
+<c:url var="LisePicture" value="/img/pictureLise.jpg"/>
 <a href="${LiseLinkedIn}"><img src="${LisePicture}" class="about-picture"  /></a>
 
-<p>Bio Goes Here</p>
+<p>A self-starter and resourceful thinker who gets excited when facing complex problems. Career focused in research and web entrepreneurship, with passion for innovation and learning new technologies. Looking for a junior software development position that will support continued growth and lifelong learning.</p>
 
 <h3>Louis Campana</h3>
 
 <h4>Developer</h4>
 
 <c:url var="LouisLinkedIn" value="https://www.linkedin.com/in/louisjohncampana/"/>
-<c:url var="LouisPicture" value="/img/LouisCampanaPicture.jpeg"/>
+<c:url var="LouisPicture" value="/img/LouisCampanaPicture.png"/>
 <a href="${LouisLinkedIn}"><img src="${LouisPicture}" class="about-picture"  /></a>
 
 <p>Bio Goes Here</p>
