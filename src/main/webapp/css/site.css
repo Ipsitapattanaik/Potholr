@@ -22,14 +22,15 @@ form{
 }
 
 html, body {
-height: 95%;
-margin: 0px;
-padding: 0;
-background-color:#e5e5cb;
+    height: 95%;
+    margin: 0px;
+    padding: 0;
+    background-color:#e5e5cb;
+    color:#000033;
 }
 
 footer{
-    padding: 20px;
+    padding: 40px;
     color:#000033;
 }
 
