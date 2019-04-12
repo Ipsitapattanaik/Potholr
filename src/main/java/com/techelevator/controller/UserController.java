@@ -94,6 +94,7 @@ public class UserController {
 //		}
 		System.out.println("Before saving");
 		
+		
 		userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
 		
 		//Need to start the session with a user
