@@ -14,8 +14,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
-<h1>User Dashboard</h1>
-<h2>Welcome ${user.userName}</h2>
+
+<h1><div class = "welcomeUser"/>Welcome ${user.userName}</h1>
 
 <div class="">
 	<div class="">

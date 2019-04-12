@@ -2,9 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<h1>Welcome to PothlVnia!</h1>
-
-
+<h1><div class = "welcomeUser"> Welcome to PothlVnia!</h1></div>
 
 <br></br>
 <!-- added pothole images -->
