@@ -90,11 +90,8 @@ public class UserController {
 //			return "redirect:/Users/newUser";
 //		}
 		
-		User loggedUser = userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
-		session.setAttribute("user", loggedUser);
-//		System.out.println("In the createUser method. The user is " + loggedUser.getUserName());
-//		System.out.println("email " + loggedUser.getEmail());
-//		System.out.println("employee " + loggedUser.isEmployee());
+		
+		userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
 		
 		//Need to start the session with a user
 //

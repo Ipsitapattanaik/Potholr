@@ -43,11 +43,21 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	
 	@Override
 	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
-		String sqlInsertStatement = "INSERT INTO app_user (street_number, street_name, city, state, zip_code, country, lat, lng) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+		String sqlInsertStatement = "INSERT INTO pothole (street_number, street_Name, city, state, zip_code, country, lat, lng) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 		jdbcTemplate.update(sqlInsertStatement, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
 	}
 
-
+//	String dateReported = "3/11/89";
+//	String repairDate = "3/11/89";
+//	int potHoleId = 101;
+//	int stateCode = 3;
+//	String severity = "Inspected";
+//	String statusDate = "3/11/89";
+//	int userId = 6;
+//	String imgURL = "word";
+	
+	
 	@Override
 	public void reportPothole(Pothole newPothole) {
 		String sqlUpdate = "INSERT INTO pothole (pothole_Id, street_Name, lat, lng) " + " VALUES (?,?,?,?) ";

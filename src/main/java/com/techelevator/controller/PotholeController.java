@@ -1,11 +1,15 @@
 package com.techelevator.controller;
 
+import com.techelevator.model.Pothole;
 import com.techelevator.model.PotholeDAO;
 import com.techelevator.model.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +17,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -37,6 +43,12 @@ public class PotholeController {
 		model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(orderBy));
 
 		return "/Potholes/allPotholes";
+	}
+	
+	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.POST)
+	public String createPothole(@Valid @ModelAttribute Pothole pothole, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+		potholeDAO.savePothole(pothole.getStreet_Number(), pothole.getStreet_Name(), pothole.getCity(), pothole.getState(), pothole.getZip_Code(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
+		return "redirect:/Users/userDashboard";
 	}
 
 	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.GET)
