@@ -31,4 +31,14 @@
 <p>Tom started his career with Microsoft Corporation where he was Program Manager on Windows 3.11, Windows for Workgroups, Windows 95, and Internet Explorer. After leaving Microsoft in 1995, Tom formed his first consulting company to work with the emerging internet technologies. His company consulted with firms like Microsoft, Heinz, and the Pittsburgh Pirates. Tom was also recruited by Research in Motion to help them evangelize the BlackBerry 10 platform and train application developers. During this time, he also assisted US Steel and the University of Pittsburgh Medical Center with high-security, HIPAA-compliant mobile applications.</p>
 <p>In addition to development, Tom has a passion for teaching and mentoring. While at Microsoft, he was a frequent co-presenter with executive staff during the launch of Windows 3.1. He has been a guest lecturer at the University of Notre Dame, and at many conferences in Argentina, Brazil, Chile, China, Holland, Thailand, and throughout the United States and Canada. Through all this, he maintains his passion for technology, exploring new platforms, and creating solutions for real world problems.</p>
 
+<h3>Arthur</h3>
+
+<h3>Ipsita</h3>
+
+<h3>Kaelin</h3>
+
+<h3>Lise</h3>
+
+<h3>Louis</h3>
+
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />
