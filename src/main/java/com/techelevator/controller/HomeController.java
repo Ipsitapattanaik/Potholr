@@ -14,19 +14,19 @@ public class HomeController {
 		return "Home";
 	}
 	
-	@RequestMapping(path="/about")
+	@RequestMapping(path="/about", method=RequestMethod.GET)
 	public String displayAboutPage(ModelMap modelHolder) {
 
 		return "about";
 	}
 	
-	@RequestMapping(path="/contact")
+	@RequestMapping(path="/contact", method=RequestMethod.GET)
 	public String displayContactPage(ModelMap modelHolder) {
 
 		return "contact";
 	}
 	
-	@RequestMapping(path="/careers")
+	@RequestMapping(path="/careers", method=RequestMethod.GET)
 	public String displayCareersPage(ModelMap modelHolder) {
 
 		return "careers";
