@@ -22,7 +22,7 @@
 <script src="${jqvAddMethJs}"></script>
 <script src="${jqTimeagoJs}"></script>
 <script src="${popperJs}"></script>
-<script src="${bootstrapJs}"></script> 
+<script src="${bootstrapJs}"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -40,11 +40,18 @@
 
 </head>
 <body>
+	<!-- added banner to all page and if clicked comes back to home -->
+	<header>
+		<c:url value="/" var="homePageUrl" />
+		<c:url value="/img/skyline2.png" var="logoSrc" />
+		<a href="${homePageUrl}"> <img src="${logoSrc }"
+			alt="home page logo"></a>
+	</header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#"> 
-			<c:url var="homePageHref" value="/" />
-			<c:url var="imgSrc" value="/img/placeholder.png" /> 
-			<a href="${homePageHref}"><img src="${imgSrc}" class="img-fluid" style="height: 50px;" /></a>
+		<%-- <a class="navbar-brand" href="#"> <c:url var="homePageHref"
+				value="/" /> <c:url var="imgSrc" value="/img/placeholder.png" /> <a
+			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"
+				style="height: 50px;" /></a>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -52,7 +59,7 @@
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
+ --%>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<c:url var="homePageHref" value="/" />
@@ -60,26 +67,33 @@
 
 				<c:if test="${not empty currentUser}">
 					<c:url var="dashboardHref" value="/users/${currentUser}" />
-					<li class="nav-item"><a class="nav-link" href="${dashboardHref}">Private Messages</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${dashboardHref}">Private Messages</a></li>
 					<c:url var="newMessageHref"
 						value="/users/${currentUser}/messages/new" />
-					<li class="nav-item"><a class="nav-link" href="${newMessageHref}">New Message</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${newMessageHref}">New Message</a></li>
 					<c:url var="sentMessagesHref"
 						value="/users/${currentUser}/messages" />
-					<li class="nav-item"><a class="nav-link" href="${sentMessagesHref}">Sent Messages</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${sentMessagesHref}">Sent Messages</a></li>
 					<c:url var="changePasswordHref"
 						value="/users/${currentUser}/changePassword" />
-					<li class="nav-item"><a class="nav-link" href="${changePasswordHref}">Change Password</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${changePasswordHref}">Change Password</a></li>
 				</c:if>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty currentUser}">
 						<c:url var="newUserHref" value="/Users/new" />
-						<li class="nav-item"><a class="nav-link" href="${newUserHref}">Sign Up</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${newUserHref}">Sign Up</a></li>
 						<c:url var="loginHref" value="/Users/login" />
-						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log In</a></li>
-						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log Out</a></li>
+						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log
+								In</a></li>
+						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log
+								Out</a></li>
 					</c:when>
 					<c:otherwise>
 						<c:url var="logoutAction" value="/logout" />

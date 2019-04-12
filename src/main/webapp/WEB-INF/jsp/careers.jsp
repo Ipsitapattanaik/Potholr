@@ -2,4 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
+<h1 class="page-title">Careers</h1>
+
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />
