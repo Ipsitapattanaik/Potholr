@@ -26,6 +26,18 @@ public class HomeController {
 		return "contact";
 	}
 	
+	@RequestMapping(path="/contact", method=RequestMethod.POST)
+	public String acceptContactInput(ModelMap modelHolder) {
+		
+		return "redirect:/ThankYouForYourInput";
+	}
+	
+	@RequestMapping(path="/ThankYouForYourInput", method=RequestMethod.GET)
+	public String ThankYouForYourInput(ModelMap modelHolder) {
+
+		return "contactSuccess";
+	}
+	
 	@RequestMapping(path="/careers", method=RequestMethod.GET)
 	public String displayCareersPage(ModelMap modelHolder) {
 
