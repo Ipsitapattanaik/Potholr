@@ -78,3 +78,10 @@ max-width: 200px;
 padding: 4px;
 padding: 20px;
 }
+
+.about-picture{
+    border-radius:200px;
+    height:200px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
