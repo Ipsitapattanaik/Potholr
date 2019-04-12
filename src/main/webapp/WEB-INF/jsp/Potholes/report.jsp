@@ -1,12 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<c:url var="formAction" value="/Users/userDashboard" />
-<form method="POST" action="${formAction}" enctype="multipart/form-data">
+<c:url var="formAction" value="/Potholes/report" />
+<form method="POST" action="${formAction}">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 	<div class="row">
 		<div class="col-sm-4"></div>
@@ -35,6 +32,10 @@
       			Select a photo to upload: <br />
          		<input type = "file" name = "file" size = "50" />
          		<br />
+			</div>
+			<div class="form-group">
+				<label for="userId">User ID: </label>
+				<input type="text" id="userId" name="userId" placeHolder="User ID" class="form-control" />
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>

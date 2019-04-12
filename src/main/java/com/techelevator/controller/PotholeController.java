@@ -26,9 +26,13 @@ import java.util.Date;
 @Controller
 @SessionAttributes({ "currentUser", "isEmployee" })
 public class PotholeController {
-
-	@Autowired
+	
 	private PotholeDAO potholeDAO;
+	
+	@Autowired
+	public PotholeController(PotholeDAO potholeDAO) {
+		this.potholeDAO= potholeDAO;
+	}
 
 	@RequestMapping(path = "/Potholes/allPotholes", method = RequestMethod.GET)
 	public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy, HttpSession session) {
@@ -45,9 +49,11 @@ public class PotholeController {
 		return "/Potholes/allPotholes";
 	}
 	
-	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.POST)
-	public String createPothole(@Valid @ModelAttribute Pothole pothole, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
-		potholeDAO.savePothole(pothole.getStreet_Number(), pothole.getStreet_Name(), pothole.getCity(), pothole.getState(), pothole.getZip_Code(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
+	@RequestMapping(path="/Potholes/report", method=RequestMethod.POST)
+	public String savePothole(@ModelAttribute Pothole pothole, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+		System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | " 
+	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());
+		potholeDAO.savePothole(pothole.getUserId(), pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
 		return "redirect:/Users/userDashboard";
 	}
 
