@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<h1>Welcome to Potholr!</h1>
+<h1 class="page-title">Welcome to Potholr!</h1>
 		
 		<div id="map"></div>
 <script>
