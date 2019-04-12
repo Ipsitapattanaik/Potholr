@@ -31,7 +31,7 @@ public class AuthenticationController {
 						@RequestParam String password, 
 						@RequestParam(required=false) String destination,
 						HttpSession session) {
-		if(userDAO.searchForUsernameAndPassword(userName, password)) {
+		if(userDAO.searchForUsernameAndPassword(userName, password) != null) {
 			session.setAttribute("currentUser", userDAO.getUserByUserName(userName));
 			
 			if(destination != null && ! destination.isEmpty()) {
