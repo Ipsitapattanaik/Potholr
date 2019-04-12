@@ -33,21 +33,16 @@ CREATE TABLE pothole
 	img_Url VARCHAR(200),
 	
 	CONSTRAINT pk_pothole_Id PRIMARY KEY (pothole_Id),
-	CONSTRAINT fk_pothole_Id_user_id FOREIGN KEY(user_id) REFERENCES app_user(user_id)
-	
+	CONSTRAINT fk_pothole_Id_pothole_Id FOREIGN KEY(pothole_Id) REFERENCES pothole(pothole_Id)
+	CONSTRAINT fk_user_id_user_id FOREIGN KEY(user_id) REFERENCES app_user(user_id)
 );
 
-drop table pothole_user;
 
-CREATE TABLE pothole_user
-(
-
-        pothole_Id int not null,
-        user_id int not null,
-        
-        constraint pk_pothole_user primary key (pothole_Id,user_id),
-        constraint fk_pothole_app_user foreign key (pothole_Id) references pothole (pothole_Id),
-        constraint fk_pothole_app_user foreign key (user_id) references app_user (user_id)
+CREATE TABLE pothole_user (
+user_id integer NOT NULL,
+pothole_Id integer NOT NULL,
+CONSTRAINT pk_pothole_user_app_user_id_pothole_Id PRIMARY KEY (user_id, pothole_Id)
+CONSTRAINT fk_pothole_Id_user_id FOREIGN KEY(user_id) REFERENCES app_user(user_id)
 );
 
 INSERT INTO app_user (user_id,user_name,phone, email, password) VALUES (1,'ipp', '6126666000', 'ipp@gmail.com','ipp');
@@ -69,6 +64,13 @@ INSERT INTO pothole(pothole_Id, user_id, street_Name, street_Number, zip_Code, s
 
 
 INSERT INTO pothole(street_number, street_name, city, state, zip_code, country, lat, lng, img_url) VALUES (3, 'Sheridan', 'Williamsport', 'PA', 17701, 'USA', 50, 50, 'fakeURL');
+
+
+INSERT INTO pothole_user (user_id, pothole_Id) VALUES (1, 1);
+INSERT INTO pothole_user (user_id, pothole_Id) VALUES (2, 2);
+INSERT INTO pothole_user (user_id, pothole_Id) VALUES (3, 3);
+INSERT INTO pothole_user (user_id, pothole_Id) VALUES (4, 4);
+INSERT INTO pothole_user (user_id, pothole_Id) VALUES (5, 5);
 
 SELECT * FROM pothole;
 SELECT * FROM app_user;
