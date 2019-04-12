@@ -79,6 +79,7 @@
 						<li class="nav-item"><a class="nav-link" href="${newUserHref}">Sign Up</a></li>
 						<c:url var="loginHref" value="/Users/login" />
 						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log In</a></li>
+						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log Out</a></li>
 					</c:when>
 					<c:otherwise>
 						<c:url var="logoutAction" value="/logout" />

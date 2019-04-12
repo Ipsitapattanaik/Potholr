@@ -37,6 +37,19 @@ CREATE TABLE pothole
 	
 );
 
+drop table pothole_user;
+
+CREATE TABLE pothole_user
+(
+
+        pothole_Id int not null,
+        user_id int not null,
+        
+        constraint pk_pothole_user primary key (pothole_Id,user_id),
+        constraint fk_pothole_app_user foreign key (pothole_Id) references pothole (pothole_Id),
+        constraint fk_pothole_app_user foreign key (user_id) references app_user (user_id)
+);
+
 INSERT INTO app_user (user_id,user_name,phone, email, password) VALUES (1,'ipp', '6126666000', 'ipp@gmail.com','ipp');
 INSERT INTO app_user (user_id,user_name,phone, email, password, is_employee) VALUES (2,'Employee', '6127777000', 'emp@gmail.com','employee', true);
 INSERT INTO app_user (user_id,user_name,phone,email, password, is_employee) VALUES (3,'kell', '6128888000', 'kell@gmail.com','kell', true);

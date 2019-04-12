@@ -57,6 +57,7 @@ public class JDBCUserDAO implements UserDAO {
 //		} else {
 //			return false;
 //		}
+	
 		
 		User thisUser = new User();
 		if(user.next()) {
