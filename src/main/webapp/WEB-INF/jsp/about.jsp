@@ -4,6 +4,6 @@
 
 <h1 class="page-title">About Us</h1>
 
-<p>Since we were founded in 2019 in Pittsburgh Pennsylvania, we have been helping citizens and municipalities map the potholes in their roads so that they may be fixed.</p>
+<p>In the spring 2019, our founder and CEO Caitie Zajko suffered three flat tires on her car due to the rampant potholes in the city of Pittsburgh. This inspired her to found Potholr, an app to crowdsource the locations of potholes and pressure municipalities to repair them.</p>
 
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />
