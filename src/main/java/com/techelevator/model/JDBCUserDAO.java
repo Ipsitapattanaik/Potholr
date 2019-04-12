@@ -37,7 +37,7 @@ public class JDBCUserDAO implements UserDAO {
 	}
 
 	@Override
-	public boolean searchForUsernameAndPassword(String userName, String password) {
+	public User searchForUsernameAndPassword(String userName, String password) {
 		System.out.println("Enter the searchForUsernameAndPassword");
 		String sqlSearchForUser = "SELECT * "+
 							      "FROM app_user "+
@@ -52,11 +52,23 @@ public class JDBCUserDAO implements UserDAO {
 //		} else {
 //			return false;
 //		}
+//		if(user.next()) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+		
+		User thisUser = new User();
 		if(user.next()) {
-			return true;
-		} else {
-			return false;
-		}
+			thisUser.setUserId(user.getLong("user_id"));
+			thisUser.setUserName(user.getString("user_name"));
+			thisUser.setPassword(user.getString("password"));
+			thisUser.setEmail(user.getString("email"));
+			thisUser.setPhone(user.getString("phone"));
+			thisUser.setEmployee(user.getBoolean("is_employee"));
+			}
+
+		return thisUser;
 
 	}
 
@@ -77,7 +89,9 @@ public class JDBCUserDAO implements UserDAO {
 			thisUser = new User();
 			thisUser.setUserName(user.getString("user_name"));
 			thisUser.setPassword(user.getString("password"));
-		}
+			thisUser.setEmail(user.getString("email"));
+			thisUser.setPhone(user.getString("phone"));
+			}
 
 		return thisUser;
 	}
