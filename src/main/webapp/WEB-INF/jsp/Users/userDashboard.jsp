@@ -15,45 +15,112 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<h1><div class = "welcomeUser"/>Welcome ${user.userName}</h1>
+<h1>Hello ${user.userName},<br> <h4>Welcome back to your dashboard !!</h4></h1>
 
-<div class="">
-	<div class="">
-		<b>User Id: </b>
-	</div>
-	<div class="">
-		<c:out value="${user.userId}" />
-	</div>
-</div>
-<div class="">
-	<div class="">
-		<b>User Name: </b>
-	</div>
-	<div class="">
-		<c:out value="${user.userName}" />
-	</div>
-</div>
-<div class="">
-	<b>Phone: </b>
-</div>
-<div class="">
-	<c:out value="${user.phone}" />
-</div>
-<div class="">
-	<div class="">
-		<b>Email: </b>
-	</div>
-	<div class="">
-		<c:out value="${user.email}" />
-	</div>
-	<div class="">
-		<b>Is Emloyee: </b>
-	</div>
-	<div class="">
-		<c:out value="${user.employee}" />
-	</div>
-</div>
+<style>
+body , html{
 
+   background-image: url("../img/background5.jpg");
+  
+
+}
+nav{
+background-image: url("../img/crackedpothole.png");
+}
+
+table {
+
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 500px;
+  align:"right";
+}
+
+td, th {
+
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: orange;
+}
+
+nav ul li {
+background-color: white;
+border-radius: 8px;
+list-style: none;
+text-align: center;
+flex-grow: 1;
+padding-top: 5px;
+margin: 10px;
+
+padding: 4px;
+}
+
+#map {
+height: 400px;
+width: 40%;
+align : right;
+
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+</style>
+
+<br>
+<body>
+
+<table class="tableView" >
+  <tr>
+    <th>Pothole Id</th>
+    <th>Reported Date</th>
+    <th>Street Name</th>
+    
+  </tr>
+ <tr>
+    <td><c:out value="${pothole.pothole_id}" /></td>
+    <td><c:out value="${pothole.report_Date}" /></td>
+    <td><c:out value="${pothole.street_Name}" /></td>
+  </tr>
+  <tr>
+   <td><c:out value="${pothole.pothole_id}" /></td>
+    <td><c:out value="${pothole.report_Date}" /></td>
+    <td><c:out value="${pothole.street_Name}" /></td>
+  </tr> 
+  
+  <tr>
+     <th>Severity</th>
+    <th>Status</th>
+    <th>Zip_Code</th>
+  </tr>
+  <tr>
+   <td><c:out value="${pothole.severity}" /></td>
+    <td><c:out value="${pothole.status_Code}" /></td>
+    <td><c:out value="${pothole.zip_Code}" /></td>
+  </tr>
+    <tr>
+   <td><c:out value="${pothole.severity}" /></td>
+    <td><c:out value="${pothole.status_Code}" /></td>
+    <td><c:out value="${pothole.zip_Code}" /></td>
+  </tr>
+  
+ </table>
+ 
+</body>
+
+<br>
+ 
 <div id="map"></div>
 <script>
 	var map;
@@ -151,6 +218,9 @@
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
 	
 </script>
-
+    <br></br>
+    <br></br>  
+    
+    <button id="Reportpotholetab" class = "button" type="submit">Report a Pothole</button>
 
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />

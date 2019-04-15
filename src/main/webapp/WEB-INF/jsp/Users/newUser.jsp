@@ -3,6 +3,15 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
+<style>
+ body, html{
+
+   background-image: url("../img/thankyou1.jpg"); 
+  
+
+}
+</style>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 		$.validator.addMethod('capitals', function(thing){
