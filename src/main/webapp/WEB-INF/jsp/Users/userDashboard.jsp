@@ -221,6 +221,6 @@ img {
     <br></br>
     <br></br>  
     
-    <button id="Reportpotholetab" class = "button" type="submit">Report a Pothole</button>
+    <button id="Reportpotholetab" type="submit"><a href="/capstone/Potholes/report" class = "button" >Report a Pothole</a></button>
 
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />

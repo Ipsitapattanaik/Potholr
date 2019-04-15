@@ -102,8 +102,6 @@ public class PotholeController {
 	public String savePothole(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
 	//	User user = (User)session.getAttribute("user");
 		Long userId = Long.parseLong(request.getParameter("userId"));
-		System.out.println("Street number is " + pothole.getStreetNumber());
-		System.out.println("Latitude is " + pothole.getLat());
 		
 //	System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | "
 //	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());

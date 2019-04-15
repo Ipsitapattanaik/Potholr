@@ -41,12 +41,6 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	    return potholeList;
 	}
 	
-	@Override
-	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
-		String sqlInsertStatement = "INSERT INTO pothole (street_number, street_Name, city, state, zip_code, country, lat, lng) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-		jdbcTemplate.update(sqlInsertStatement, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
-	}
 
 //	String dateReported = "3/11/89";
 //	String repairDate = "3/11/89";
@@ -108,12 +102,20 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 
 	@Override
-	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
+	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, String lat, String lng) {
 	String sqlInsertStatement = "INSERT INTO pothole (user_id, street_number, street_Name, city, state, zip_code, country, lat, lng) "
 	+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	jdbcTemplate.update(sqlInsertStatement, userId, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
 	}
 	
+
+//	@Override
+//	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
+//		String sqlInsertStatement = "INSERT INTO pothole (street_number, street_Name, city, state, zip_code, country, lat, lng) "
+//				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+//		jdbcTemplate.update(sqlInsertStatement, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
+//	}
+
 	
 	
 	public long getNextPotholeId() {
@@ -134,8 +136,8 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		thePothole.setCountry(results.getString("country"));
 		thePothole.setStatusDate(results.getDate("status_Date"));
 		thePothole.setStatusCode(results.getInt("status_Code"));
-		thePothole.setLat(results.getLong("lat"));
-		thePothole.setLng(results.getLong("lng"));
+		thePothole.setLat(results.getString("lat"));
+		thePothole.setLng(results.getString("lng"));
 		thePothole.setSeverity(results.getInt("severity"));
 		thePothole.setReportDate(results.getDate("report_Date"));
 		thePothole.setImgUrl(results.getString("img_Url"));

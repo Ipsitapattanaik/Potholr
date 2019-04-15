@@ -13,13 +13,14 @@ public class Pothole {
 	private String country;
 	private Date statusDate;
 	private int statusCode;
-	private Long lat;
-	private Long lng;
+	private String lat;
+	private String lng;
 	private int severity;
 	private Date reportDate;
 	private String reportUser;
 	private String imgUrl;
 	private long userId;
+	
 	public Long getPotholeId() {
 		return potholeId;
 	}
@@ -74,16 +75,19 @@ public class Pothole {
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
 	}
-	public Long getLat() {
+	
+	
+	
+	public String getLat() {
 		return lat;
 	}
-	public void setLat(Long lat) {
+	public void setLat(String lat) {
 		this.lat = lat;
 	}
-	public Long getLng() {
+	public String getLng() {
 		return lng;
 	}
-	public void setLng(Long lng) {
+	public void setLng(String lng) {
 		this.lng = lng;
 	}
 	public int getSeverity() {
