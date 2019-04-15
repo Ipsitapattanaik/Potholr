@@ -4,9 +4,24 @@ header {
 
 }
 
+body{
+	background : "https://cdn.pixabay.com/photo/2017/12/26/16/46/book-3040862_960_720.jpg";
+}
+#home{
+	background-color: white;
+	background-image: url("../img/skyline2.jpg");
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 header img {
-height: 210px;
-width: 100%;
+max-width: 100%;
+  height: auto;
 display: block;
 
 }
@@ -22,7 +37,7 @@ background-color: #cbdee5;
 border-radius: 8px;
 list-style: none;
 text-align: center;
-flex-grow: 1;
+
 padding-top: 5px;
 margin: 10px;
 
@@ -35,16 +50,25 @@ font-size: 18px;
 text-align: center;
 
 }
+.form-group{
+	text-color:white;
+}
 
 a{
 color:#003595  ;
 
 }
+.about-picture{
+	height: 300px;
+width: 30%;
+}
 
 #map {
 height: 200px;
 width: 90%;
+
 }
+
 
 #map-title{
 color:#000033;
@@ -62,8 +86,25 @@ html, body {
     height: 95%;
     margin: 0px;
     padding: 0;
-    background-color:#e5e5cb;
+    background-color:#e5e5cb; 
     color:#000033;
+     /* background-image: url("https://cdn.pixabay.com/photo/2016/11/22/20/01/abstract-1850416_960_720.jpg");  */ 
+    
+}
+#Reportpotholetab 
+{ 
+	
+  background-image: url("../img/crackedpothole.png");
+  background-position: center;
+  border-radius: 4px;
+  color: white;
+  font-size: 2em;
+  height: 50px;
+  width: 400px;
+  margin: 10px;
+  border: .5px solid black;
+  box-shadow: 2px 2px #888888;
+  
 }
 
 footer{
@@ -77,9 +118,33 @@ margin: 30px;
 max-width: 200px;
 padding: 4px;
 padding: 20px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
 
 }
 
 #errorMessage{
 	color:red;
 }
+
+.tableView{
+	align-text: center;
+	margin: 20px;
+	margin-right:100px;
+	border-collapse: collapse;
+}
+
+#backgroundColorCellTableView{
+	background-color: rgb(200, 200, 200);
+}
+
+#firstColumnTableView{
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 15%;
+}
+
+
+

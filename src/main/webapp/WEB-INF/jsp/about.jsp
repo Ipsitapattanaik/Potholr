@@ -2,6 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
+
 <h1 class="page-title">About Us</h1>
 
 <p>In the spring 2019, our founder and CEO Caitie Zajko suffered three flat tires on her car due to the rampant potholes in the city of Pittsburgh. This inspired her to found Potholr, an app to crowdsource the locations of potholes and pressure municipalities to repair them. Since then, we have grown and our app now functions anywhere in the United States.</p>
@@ -52,7 +53,7 @@
 <c:url var="IpsitaPicture" value="/img/IpsitaPattanaikPicture.png"/>
 <a href="${IpsitaLinkedIn}"><img src="${IpsitaPicture}" class="about-picture"  /></a>
 
-<p>Bio Goes Here</p>
+<p>A self motivated individual who sees every challenge as an opportunity, well connected professional always believes in team play. Focused to keeps everything moving smoothly and makes sure all the deadlines are met and achieved highest standards. Looking for a software developer role upon graduation in April 2019</p>
 
 <h3>Kaelin Kamzelski</h3>
 
