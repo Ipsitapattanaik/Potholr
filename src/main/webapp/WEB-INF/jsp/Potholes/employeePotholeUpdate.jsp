@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:import url="/WEB-INF/jsp/Common/header.jsp"/>
+<c:import url="/WEB-INF/jsp/common/header.jsp"/>
 <c:url value="/js" var="jsHref"/>
 <script src="${jsHref}/delete.js"></script>
 
@@ -21,7 +21,7 @@
                     <b>Pothole Id: </b>
                 </div>
                 <div class="col-xs-8">
-                    <c:out value="${pothole.id}"/>
+                    <c:out value="${pothole.pothole_id}"/>
                 </div>
             </div>
             <div class="row">
@@ -29,7 +29,7 @@
                     <b>Street Name: </b>
                 </div>
                 <div class="col-xs-8">
-                    <c:out value="${pothole.streetName}"/>
+                    <c:out value="${pothole.street_Name}"/>
                 </div>
             </div>
             <div class="row">
@@ -37,7 +37,7 @@
                     <b>Reported: </b>
                 </div>
                 <div class="col-xs-8">
-                    <c:out value="${pothole.reportDate}"/>
+                    <c:out value="${pothole.report_Date}"/>
                 </div>
             </div>
 
@@ -64,8 +64,8 @@
                     </div>
                     <div class="col-xs-8">
                         <select name="statusCode">
-                            <option value="${pothole.statusCode}">current: <c:out
-                                    value="${pothole.statusCode}"/></option>
+                            <option value="${pothole.status_Code}">current: <c:out
+                                    value="${pothole.status_Code}"/></option>
                             <option value="reported">Reported</option>
                             <option value="inspected">Inspected</option>
                             <option value="repaired">Repaired</option>
@@ -77,7 +77,7 @@
                         <label for="statusDate">Status Date:</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="date" type="date" name="statusDate" value="${pothole.statusDate}">
+                        <input id="date" type="date" name="statusDate" value="${pothole.status_Date}">
                     </div>
                 </div>
                 <br>
@@ -86,7 +86,7 @@
 
             <c:url var="potholeDeleteLink" value="/potholes/deletePothole"/>
             <form id="deleteForm" method="POST" action="${potholeDeleteLink}">
-                <input type="hidden" name="potholeId" value="${pothole.id}">
+                <input type="hidden" name="potholeId" value="${pothole.pothole_id}">
                 <button id="deletePothole" type="submit" class="btn btn-danger">Delete Pothole</button>
                 <p id="demo"></p>
             </form>
@@ -96,4 +96,4 @@
 </div>
 
 
-<c:import url="/WEB-INF/jsp/Common/footer.jsp"/>
+<c:import url="/WEB-INF/jsp/common/footer.jsp"/>
