@@ -1,7 +1,6 @@
 /* updated css file: nav, nav ul li, li a, header img, footer */
-
 header {
-
+	
 }
 
 body{
@@ -25,11 +24,12 @@ max-width: 100%;
 display: block;
 
 }
+
 nav {
-margin-top: 10px;
-background-color: orange;
-padding: 1px;
-margin-bottom: 5px;
+	margin-top: 10px;
+	background-color: orange;
+	padding: 1px;
+	margin-bottom: 5px;
 }
 
 nav ul li {
@@ -45,18 +45,16 @@ padding: 4px;
 }
 
 li a {
-text-decoration: none;
-font-size: 18px;
-text-align: center;
-
+	text-decoration: none;
+	font-size: 18px;
+	text-align: center;
 }
 .form-group{
 	text-color:white;
 }
 
-a{
-color:#003595  ;
-
+a {
+	color: #003595;
 }
 .about-picture{
 	height: 300px;
@@ -74,12 +72,12 @@ width: 90%;
 color:#000033;
 }
 
-form{
-color:#00adee;
-
+form {
+	color: #00adee;
 }
-img-fluid{
-margin: 0px;
+
+img-fluid {
+	margin: 0px;
 }
 
 html, body {
@@ -123,6 +121,8 @@ margin-left: auto;
 margin-right: auto;
 width: 50%;
 
+#errorMessage {
+	color: red;
 }
 
 #errorMessage{

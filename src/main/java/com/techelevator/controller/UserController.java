@@ -50,7 +50,7 @@ public class UserController {
 	
 	@RequestMapping(path="/Users/new", method=RequestMethod.POST)
 	public String displayDashBoardForNewlyRegisteredUser(@RequestParam(defaultValue = "false") boolean checkbox,
-			@Valid @ModelAttribute User user, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+			@Valid @ModelAttribute User user, BindingResult result, ModelMap modelHolder, RedirectAttributes flash, HttpSession session) {
 //		if( ! modelHolder.containsAttribute("user")) {
 //			modelHolder.addAttribute("user", new User());
 //		}
@@ -64,10 +64,12 @@ public class UserController {
 	    	user.setEmployee(false);
 	    }
 
-		System.out.println("******************************************");
-		System.out.println(user.getUserName() + "  " + user.getEmail() + " "+ user.getPhone() + " " + user.getPassword() + " " + user.isEmployee());
 		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhone(), user.getPassword(), user.isEmployee());
+		User loggedUser = userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
 		
+		session.setAttribute("user", loggedUser);
+
+	
 		return "redirect:/Users/userDashboard";
 	}
 	
