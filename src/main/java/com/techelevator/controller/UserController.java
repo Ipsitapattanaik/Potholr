@@ -91,6 +91,7 @@ public class UserController {
 	@RequestMapping(path="/Users/login", method=RequestMethod.POST)
 	public String createUser(@Valid @ModelAttribute User user, BindingResult result, 
 			RedirectAttributes flash, HttpSession session) {
+		System.out.println("In the post method");
 //		if(result.hasErrors()) {
 //			flash.addFlashAttribute("user", user);
 //			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
@@ -98,6 +99,8 @@ public class UserController {
 //		}
 
 		
+
+		//////////////
 		User loggedUser = userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
 		
 		//if(loogedUser)
@@ -108,12 +111,14 @@ public class UserController {
 			
 		}
 		session.setAttribute("user", loggedUser);
+		//////////////
+		
 //		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhone(), user.getPassword(), user.isEmployee());
 
 		
 		//Need to start the session with a user
 //
-		
+System.out.println("Just before the redirect");		
 		return "redirect:/Users/userDashboard";
 	}
 	
@@ -128,12 +133,13 @@ public class UserController {
 	
 	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.GET)
 	public String displayUserDashboard(ModelMap modelHolder, HttpSession session) {
+		
 		User user = (User) session.getAttribute("user");
-		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
-		listOfPotholes = potholeDAO.getListOfPotholesByUserId(user.getUserId())
-;//		System.out.println("In the displayUserDashboard method. The user is " + user.getUserName());
-//		System.out.println("email " + user.getEmail());
-//		System.out.println("employee " + user.isEmployee());
+//		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+//		listOfPotholes = potholeDAO.getListOfPotholesByUserId(user.getUserId());
+		System.out.println("In the displayUserDashboard method. The user is " + user.getUserName());
+		System.out.println("email " + user.getEmail());
+		System.out.println("employee " + user.isEmployee());
 		return "Users/userDashboard";
 	}	
 	

@@ -60,16 +60,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 				newPothole.getLng());
 	}
 	
-	@Override
-	public List<Pothole> getListOfPotholesByUserId(Long user_Id) {
-		String sqlStatement = "SELECT * FROM pothole WHERE user_id = ?";
-		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement, user_Id);
-		while(results.next()) {
-			listOfPotholes.add(mapRowToPothole(results));
-		}
-		return listOfPotholes;
-	}
+
 
 	
 
@@ -100,17 +91,18 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	}
 	
 	
+
 	@Override
 	public List<Pothole> getListOfPotholesByUserId(Long user_Id) {
-	String sqlStatement = "SELECT * FROM pothole WHERE user_id = ?";
-	List<Pothole> listOfPotholes = new ArrayList<Pothole>();
-	SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement, user_Id);
-	while(results.next()) {
-	listOfPotholes.add(mapRowToPothole(results));
+		String sqlStatement = "SELECT * FROM pothole WHERE user_id = ?";
+		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement, user_Id);
+		while(results.next()) {
+			listOfPotholes.add(mapRowToPothole(results));
+		}
+		return listOfPotholes;
 	}
-	return listOfPotholes;
-	}
-
+	
 
 	@Override
 	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, String lat, String lng) {
