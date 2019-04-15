@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.model.Pothole;
+import com.techelevator.model.PotholeDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
 
@@ -23,6 +27,7 @@ import com.techelevator.model.UserDAO;
 public class UserController {
 
 	private UserDAO userDAO;
+	private PotholeDAO potholeDAO;
 
 	@Autowired
 	public UserController(UserDAO userDAO) {
@@ -124,8 +129,9 @@ public class UserController {
 	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.GET)
 	public String displayUserDashboard(ModelMap modelHolder, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		
-//		System.out.println("In the displayUserDashboard method. The user is " + user.getUserName());
+		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+		listOfPotholes = potholeDAO.getListOfPotholesByUserId(user.getUserId())
+;//		System.out.println("In the displayUserDashboard method. The user is " + user.getUserName());
 //		System.out.println("email " + user.getEmail());
 //		System.out.println("employee " + user.isEmployee());
 		return "Users/userDashboard";
