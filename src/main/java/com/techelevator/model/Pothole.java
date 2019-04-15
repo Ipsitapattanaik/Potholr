@@ -4,34 +4,45 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 public class Pothole {
-	private Long pothole_Id;
-	private String street_Name;
-	private int street_Number;
-	private int zip_Code;
+	private Long potholeId;
+	private String streetName;
+	private int streetNumber;
+	private int zipCode;
 	private String city;
 	private String state;
 	private String country;
-	private Date status_Date;
-	private int status_Code;
+	private Date statusDate;
+	private int statusCode;
 	private Long lat;
 	private Long lng;
 	private int severity;
-	private Date report_Date;
-	private String report_User;
-	private String img_Url;
-	
-	
-	public Long getPothole_Id() {
-		return pothole_Id;
+	private Date reportDate;
+	private String reportUser;
+	private String imgUrl;
+	private long userId;
+	public Long getPotholeId() {
+		return potholeId;
 	}
-	public void setPothole_Id(Long pothole_Id) {
-		this.pothole_Id = pothole_Id;
+	public void setPotholeId(Long potholeId) {
+		this.potholeId = potholeId;
 	}
-	public String getStreet_Name() {
-		return street_Name;
+	public String getStreetName() {
+		return streetName;
 	}
-	public void setStreet_Name(String street_Name) {
-		this.street_Name = street_Name;
+	public void setStreetName(String streetName) {
+		this.streetName = streetName;
+	}
+	public int getStreetNumber() {
+		return streetNumber;
+	}
+	public void setStreetNumber(int streetNumber) {
+		this.streetNumber = streetNumber;
+	}
+	public int getZipCode() {
+		return zipCode;
+	}
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
 	}
 	public String getCity() {
 		return city;
@@ -51,17 +62,17 @@ public class Pothole {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public Date getStatus_Date() {
-		return status_Date;
+	public Date getStatusDate() {
+		return statusDate;
 	}
-	public void setStatus_Date(Date date) {
-		this.status_Date = date;
+	public void setStatusDate(Date statusDate) {
+		this.statusDate = statusDate;
 	}
-	public int getStatus_Code() {
-		return status_Code;
+	public int getStatusCode() {
+		return statusCode;
 	}
-	public void setStatus_Code(int status_Code) {
-		this.status_Code = status_Code;
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
 	}
 	public Long getLat() {
 		return lat;
@@ -81,37 +92,31 @@ public class Pothole {
 	public void setSeverity(int severity) {
 		this.severity = severity;
 	}
-	public Date getReport_Date() {
-		return report_Date;
+	public Date getReportDate() {
+		return reportDate;
 	}
-	public void setReport_Date(Date report_Date) {
-		this.report_Date = report_Date;
+	public void setReportDate(Date reportDate) {
+		this.reportDate = reportDate;
 	}
-	public String getImg_Url() {
-		return img_Url;
+	public String getReportUser() {
+		return reportUser;
 	}
-	public void setImg_Url(String img_Url) {
-		this.img_Url = img_Url;
+	public void setReportUser(String reportUser) {
+		this.reportUser = reportUser;
 	}
-	public int getStreet_Number() {
-		return street_Number;
+	public String getImgUrl() {
+		return imgUrl;
 	}
-	public void setStreet_Number(int street_Number) {
-		this.street_Number = street_Number;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
-	public int getZip_Code() {
-		return zip_Code;
+	public long getUserId() {
+		return userId;
 	}
-	public void setZip_Code(int zip_Code) {
-		this.zip_Code = zip_Code;
-	}
-	public String getReport_User() {
-		return report_User;
-	}
-	public void setReport_User(String report_User) {
-		this.report_User = report_User;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 	
 	
-
+	
 }

@@ -1,6 +1,6 @@
 DROP TABLE pothole;
 DROP TABLE app_user;
-DROP TABLE pothole_user;
+DROp TABLE pothole_user;
 
 CREATE TABLE app_user
 (
@@ -45,7 +45,7 @@ pothole_id integer NOT NULL,
 CONSTRAINT fk_pothole_user_pothole FOREIGN KEY (pothole_id) references pothole (pothole_id),
 CONSTRAINT fk_pothole_user_user FOREIGN KEY (user_id) references app_user (user_id),
 CONSTRAINT uq_pothole_user unique (user_id, pothole_id),
-CONSTRAINT pk_pothole_user_user_id_pothole_id PRIMARY KEY (user_id, pothole_id)
+CONSTRAINT pk_pothole_user_user_id_pothole_Id PRIMARY KEY (user_id, pothole_id)
 );
 
 

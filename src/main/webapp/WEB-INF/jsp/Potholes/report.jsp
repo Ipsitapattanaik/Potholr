@@ -5,8 +5,9 @@
     
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<c:url var="formAction" value="/Users/userDashboard" />
-<form method="POST" action="${formAction}" enctype="multipart/form-data">
+<c:url var="formAction" value="/Potholes/report" />
+<%-- <form method="POST" action="${formAction}" enctype="multipart/form-data">
+ --%><form method="POST" action="${formAction}"">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 	<div class="row">
 		<div class="col-sm-4"></div>
@@ -19,8 +20,8 @@
 				<input type="text" id="state" name="state" placeHolder="State" class="form-control" />
 				<input type="text" id="zipCode" name="zipCode" placeHolder="Zip code" class="form-control" />
 				<input type="text" id="country" name="country" placeHolder="Country" class="form-control" />
-				<input type="text" id="lat" name="lng" placeHolder="Latitude" class="form-control"/>
-				<input type="text" id="lng" name="lng" placeHolder="Longitude" class="form-control"/>
+				<input type="number" id="lat" name="lat" placeHolder="Latitude" class="form-control"/>
+				<input type="number" id="lng" name="lng" placeHolder="Longitude" class="form-control"/>
 			</div>
 			<div class="form-group">
 				<label for="severity">Severity (1-least severe, 3-most severe): </label>
@@ -36,6 +37,10 @@
          		<input type = "file" name = "file" size = "50" />
          		<br />
 			</div>
+
+ 		<input  name="userId" type="hidden" value="${user.userId}"/> 
+
+			<h6>${user.userId}</h6>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 		<div class="col-sm-4"></div>

@@ -62,7 +62,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	public void reportPothole(Pothole newPothole) {
 		String sqlUpdate = "INSERT INTO pothole (pothole_Id, street_Name, lat, lng) " + " VALUES (?,?,?,?) ";
 
-		jdbcTemplate.update(sqlUpdate, getNextPotholeId(), newPothole.getStreet_Name(), newPothole.getLat(),
+		jdbcTemplate.update(sqlUpdate, getNextPotholeId(), newPothole.getStreetName(), newPothole.getLat(),
 				newPothole.getLng());
 	}
 
@@ -93,7 +93,29 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		String sqlDeletePothole = "DELETE FROM pothole WHERE pothole_Id = ?";
 		jdbcTemplate.update(sqlDeletePothole, pothole_Id);
 	}
+	
+	
+	@Override
+	public List<Pothole> getListOfPotholesByUserId(Long user_Id) {
+	String sqlStatement = "SELECT * FROM pothole WHERE user_id = ?";
+	List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+	SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement, user_Id);
+	while(results.next()) {
+	listOfPotholes.add(mapRowToPothole(results));
+	}
+	return listOfPotholes;
+	}
 
+
+	@Override
+	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
+	String sqlInsertStatement = "INSERT INTO pothole (user_id, street_number, street_Name, city, state, zip_code, country, lat, lng) "
+	+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	jdbcTemplate.update(sqlInsertStatement, userId, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
+	}
+	
+	
+	
 	public long getNextPotholeId() {
 		SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('pothole_pothole_Id_seq')");
 		if (nextIdResult.next()) {
@@ -105,21 +127,22 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 	private Pothole mapRowToPothole(SqlRowSet results) {
 		Pothole thePothole = new Pothole();
-		thePothole.setPothole_Id(results.getLong("pothole_Id"));
-		thePothole.setStreet_Name(results.getString("street_Name"));
+		thePothole.setPotholeId(results.getLong("pothole_Id"));
+		thePothole.setStreetName(results.getString("street_Name"));
 		thePothole.setState(results.getString("state"));
 		thePothole.setCity(results.getString("city"));
 		thePothole.setCountry(results.getString("country"));
-		thePothole.setStatus_Date(results.getDate("status_Date"));
-		thePothole.setStatus_Code(results.getInt("status_Code"));
+		thePothole.setStatusDate(results.getDate("status_Date"));
+		thePothole.setStatusCode(results.getInt("status_Code"));
 		thePothole.setLat(results.getLong("lat"));
 		thePothole.setLng(results.getLong("lng"));
 		thePothole.setSeverity(results.getInt("severity"));
-		thePothole.setReport_Date(results.getDate("report_Date"));
-		thePothole.setImg_Url(results.getString("img_Url"));
-		thePothole.setStreet_Number(results.getInt("street_Number"));
-		thePothole.setZip_Code(results.getInt("zip_Code"));
-		thePothole.setReport_User(results.getString("report_User"));
+		thePothole.setReportDate(results.getDate("report_Date"));
+		thePothole.setImgUrl(results.getString("img_Url"));
+		thePothole.setStreetNumber(results.getInt("street_Number"));
+		thePothole.setZipCode(results.getInt("zip_Code"));
+		thePothole.setReportUser(results.getString("report_User"));
+		thePothole.setUserId(results.getLong("user_id"));
 
 		return thePothole;
 	}
