@@ -50,9 +50,6 @@ font-size: 18px;
 text-align: center;
 
 }
-.form-group{
-	text-color:white;
-}
 
 a{
 color:#003595  ;
@@ -60,18 +57,17 @@ color:#003595  ;
 }
 .about-picture{
 	height: 300px;
-width: 30%;
+    width: 30%;
 }
 
 #map {
-height: 200px;
-width: 90%;
-
+    height: 200px;
+    width: 90%;
 }
 
 
 #map-title{
-color:#000033;
+    color:#000033;
 }
 
 form{

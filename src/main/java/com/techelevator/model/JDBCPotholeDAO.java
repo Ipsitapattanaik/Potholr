@@ -59,6 +59,17 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		jdbcTemplate.update(sqlUpdate, getNextPotholeId(), newPothole.getStreetName(), newPothole.getLat(),
 				newPothole.getLng());
 	}
+	
+	@Override
+	public List<Pothole> getListOfPotholesByUserId(Long user_Id) {
+		String sqlStatement = "SELECT * FROM pothole WHERE user_id = ?";
+		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement, user_Id);
+		while(results.next()) {
+			listOfPotholes.add(mapRowToPothole(results));
+		}
+		return listOfPotholes;
+	}
 
 	
 
@@ -144,7 +155,6 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		thePothole.setStreetNumber(results.getInt("street_Number"));
 		thePothole.setZipCode(results.getInt("zip_Code"));
 		thePothole.setReportUser(results.getString("report_User"));
-		thePothole.setUserId(results.getLong("user_id"));
 
 		return thePothole;
 	}

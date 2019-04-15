@@ -1,13 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
 <c:url var="formAction" value="/Potholes/report" />
-<%-- <form method="POST" action="${formAction}" enctype="multipart/form-data">
- --%><form method="POST" action="${formAction}"">
+<form method="POST" action="${formAction}">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 	<div class="row">
 		<div class="col-sm-4"></div>
@@ -37,10 +33,12 @@
          		<input type = "file" name = "file" size = "50" />
          		<br />
 			</div>
-
- 		<input  name="userId" type="hidden" value="${user.userId}"/> 
-
-			<h6>${user.userId}</h6>
+			<div class="form-group">
+				<label for="userId">User ID: </label>
+				<c:url var="userId" value="${user.userId}"/>
+				<input type="hidden" id="userId" value="${userId}" placeHolder="User ID" class="form-control" />
+				<h6>${user.userId}</h6>  
+			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 		<div class="col-sm-4"></div>

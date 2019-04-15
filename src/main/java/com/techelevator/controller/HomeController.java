@@ -29,6 +29,7 @@ public class HomeController {
 	@RequestMapping(path="/contact", method=RequestMethod.POST)
 	public String acceptContactInput(ModelMap modelHolder) {
 		
+		
 		return "redirect:/ThankYouForYourInput";
 	}
 	
