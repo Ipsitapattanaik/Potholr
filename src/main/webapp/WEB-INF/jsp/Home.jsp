@@ -2,7 +2,8 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
-<h1><div class = "welcomeUser"> Welcome to PothlVnia!</h1></div>
+<h1>Welcome to PotholeVania!</h1>
+
 
 <br></br>
 <!-- added pothole images -->
@@ -53,6 +54,7 @@
 	</ul>
 </li>
 </p>
+<a href="https://www.publicsource.org/the-potholes-of-pittsburgh/"><h5>Visit for Potholes of Pittsburgh</h5></a>
 <br></br>
 <h4>Lets Point It!</h4>
 

@@ -3,28 +3,45 @@ header {
 	
 }
 
+body{
+	background : "https://cdn.pixabay.com/photo/2017/12/26/16/46/book-3040862_960_720.jpg";
+}
+#home{
+	background-color: white;
+	background-image: url("../img/skyline2.jpg");
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 header img {
-	height: 210px;
-	width: 100%;
-	display: block;
+max-width: 100%;
+  height: auto;
+display: block;
+
 }
 
 nav {
 	margin-top: 10px;
-	background-color: orange;
+	background-color: #ffb81c;
 	padding: 1px;
 	margin-bottom: 5px;
 }
 
 nav ul li {
-	background-color: #cbdee5;
-	border-radius: 8px;
-	list-style: none;
-	text-align: center;
-	flex-grow: 1;
-	padding-top: 5px;
-	margin: 10px;
-	padding: 4px;
+background-color: #cbdee5;
+border-radius: 8px;
+list-style: none;
+text-align: center;
+
+padding-top: 5px;
+margin: 10px;
+
+padding: 4px;
 }
 
 li a {
@@ -32,18 +49,27 @@ li a {
 	font-size: 18px;
 	text-align: center;
 }
+.form-group{
+	text-color:white;
+}
 
 a {
 	color: #003595;
 }
-
-#map {
-	height: 200px;
-	width: 90%;
+.about-picture{
+	height: 300px;
+width: 30%;
 }
 
-#map-title {
-	color: #000033;
+#map {
+height: 200px;
+width: 90%;
+
+}
+
+
+#map-title{
+color:#000033;
 }
 
 form {
@@ -55,15 +81,18 @@ img-fluid {
 }
 
 html, body {
-	height: 95%;
-	margin: 0px;
-	padding: 0;
-	background-color: #e5e5cb;
-	color: #000033;
+    height: 95%;
+    margin: 0px;
+    padding: 0;
+    background-color:#e5e5cb; 
+    color:#000033;
+     /* background-image: url("https://cdn.pixabay.com/photo/2016/11/22/20/01/abstract-1850416_960_720.jpg");  */ 
+    
 }
 
 footer {
-	background-color: orange;
+    background-color: #ffb81c;
+    color: #003595;
 	border-radius: 100px;
 	list-style: none;
 	text-align: center;
@@ -79,6 +108,23 @@ footer {
 	width: 50%;
 }
 
+footer{
+background-color: orange;
+border-radius: 100px;
+list-style: none;
+text-align: center;
+flex-grow: 1;
+padding-top: 5px;
+margin: 30px;
+max-width: 200px;
+padding: 4px;
+padding: 20px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
+
 #errorMessage {
 	color: red;
 }
@@ -90,4 +136,11 @@ footer {
 	margin-right: auto;
 	width: 50%;
 	
+}
+
+.about-picture{
+    border-radius:200px;
+    height:200px;
+    margin-top:20px;
+    margin-bottom:20px;
 }
