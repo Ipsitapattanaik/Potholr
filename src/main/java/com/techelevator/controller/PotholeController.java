@@ -5,7 +5,6 @@ import com.techelevator.model.PotholeDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
 
-import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -53,13 +52,13 @@ public class PotholeController {
 		return "/Potholes/allPotholes";
 	}
 	
-	@RequestMapping(path="/Potholes/report", method=RequestMethod.POST)
-	public String savePothole(@ModelAttribute Pothole pothole, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
-		System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | " 
-	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());
-		potholeDAO.savePothole(pothole.getUserId(), pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
-		return "redirect:/Users/userDashboard";
-	}
+//	@RequestMapping(path="/Potholes/report", method=RequestMethod.POST)
+//	public String savePothole(@ModelAttribute Pothole pothole, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+//		System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | " 
+//	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());
+//		potholeDAO.savePothole(pothole.getUserId(), pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
+//		return "redirect:/Users/userDashboard";
+//	}
 
 	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.GET)
 	public String employeeModifyPotholeGet(Model model, @RequestParam long pothole_Id) {

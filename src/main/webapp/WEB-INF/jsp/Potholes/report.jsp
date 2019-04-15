@@ -16,8 +16,8 @@
 				<input type="text" id="state" name="state" placeHolder="State" class="form-control" />
 				<input type="text" id="zipCode" name="zipCode" placeHolder="Zip code" class="form-control" />
 				<input type="text" id="country" name="country" placeHolder="Country" class="form-control" />
-				<input type="number" id="lat" name="lat" placeHolder="Latitude" class="form-control"/>
-				<input type="number" id="lng" name="lng" placeHolder="Longitude" class="form-control"/>
+				<input type="text" id="lat" name="lat" placeHolder="Latitude" class="form-control"/>
+				<input type="text" id="lng" name="lng" placeHolder="Longitude" class="form-control"/>
 			</div>
 			<div class="form-group">
 				<label for="severity">Severity (1-least severe, 3-most severe): </label>
@@ -34,9 +34,9 @@
          		<br />
 			</div>
 			<div class="form-group">
-				<label for="userId">User ID: </label>
+<%--  				<label for="userId">User ID: </label>
 				<c:url var="userId" value="${user.userId}"/>
-				<input type="hidden" id="userId" value="${userId}" placeHolder="User ID" class="form-control" />
+	 --%>			<input type="hidden" name="userId" id="userId" value="${user.userId}" placeHolder="User ID" class="form-control" />
 				<h6>${user.userId}</h6>  
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>

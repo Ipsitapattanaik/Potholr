@@ -1,6 +1,7 @@
+DROP TABLE pothole_user;
 DROP TABLE pothole;
 DROP TABLE app_user;
-DROp TABLE pothole_user;
+
 
 CREATE TABLE app_user
 (
@@ -25,8 +26,8 @@ city VARCHAR(20),
 country VARCHAR(80),
 status_Date timestamp DEFAULT now(),
 status_Code VARCHAR(20) DEFAULT 'reported',
-lat DECIMAL(16,13),
-lng DECIMAL(16,13),
+lat Varchar(16),
+lng VArchar(16),
 severity INTEGER DEFAULT 0,
 report_Date timestamp DEFAULT now(),
 repair_Date timestamp DEFAULT now(),
@@ -45,7 +46,7 @@ pothole_id integer NOT NULL,
 CONSTRAINT fk_pothole_user_pothole FOREIGN KEY (pothole_id) references pothole (pothole_id),
 CONSTRAINT fk_pothole_user_user FOREIGN KEY (user_id) references app_user (user_id),
 CONSTRAINT uq_pothole_user unique (user_id, pothole_id),
-CONSTRAINT pk_pothole_user_user_id_pothole_Id PRIMARY KEY (user_id, pothole_id)
+CONSTRAINT pk_pothole_user_user_id_pothole_id PRIMARY KEY (user_id, pothole_id)
 );
 
 
@@ -58,13 +59,13 @@ INSERT INTO app_user (user_id,user_name,phone, email, password, is_employee) VAL
 SELECT MAX(pothole_Id) FROM pothole;
 SELECT nextval(pk_pothole_id);
 
-INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (1,1, 'Pennsylvania',901, 15233, 'PA','Pittsburgh', 'USA', '10/15/2018', 'Inspected', 40.456257, -80.0189, 2, '10/12/2018', '10/12/2019','https://i.imgflip.com/2537yf.jpg' );
-INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (2,2, 'Penn Ave',2801, 15222, 'PA','Pittsburgh','USA', '3/05/2019', 'Reported', 40.457215, -79.9756, 1, '03/05/2019','04/05/2019','https://i.pinimg.com/236x/b4/9e/3c/b49e3c4cb1f1cfd451abf9d7046e1d82--car-humor-car-memes.jpg' );
-INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (3,3, 'Murray Ave',2112, 15217, 'PA','Pittsburgh', 'USA', '12/25/2018','Repared', 40.433946, -79.9232, 3, '12/25/2018','12/25/2019','http://i.imgur.com/4jA5PpN.jpg');
-INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (4,4, 'Heber st',2801, 15222, 'PA','Pittsburgh','USA', '2/05/2019', 'Reported', 40.457215, -79.9756, 1, '04/05/2019','04/15/2019','https://i.pinimg.com/236x/b4/9e/3c/b49e3c4cb1f1cfd451abf9d7046e1d82--car-humor-car-memes.jpg' );
-INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (5,5, 'Forbes Ave',2112, 15217, 'PA','Pittsburgh', 'USA', '1/25/2018','Inspected', 40.433946, -79.9232, 3, '12/20/2018','12/29/2019', 'http://i.imgur.com/4jA5PpN.jpg');
+INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (1,1, 'Pennsylvania',901, 15233, 'PA','Pittsburgh', 'USA', '10/15/2018', 'Inspected', '40.456257', '-80.0189', 2, '10/12/2018', '10/12/2019','https://i.imgflip.com/2537yf.jpg' );
+INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (2,2, 'Penn Ave',2801, 15222, 'PA','Pittsburgh','USA', '3/05/2019', 'Reported', '40.457215', '-79.9756', 1, '03/05/2019','04/05/2019','https://i.pinimg.com/236x/b4/9e/3c/b49e3c4cb1f1cfd451abf9d7046e1d82--car-humor-car-memes.jpg' );
+INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (3,3, 'Murray Ave',2112, 15217, 'PA','Pittsburgh', 'USA', '12/25/2018','Repared', '40.433946', '-79.9232', 3, '12/25/2018','12/25/2019','http://i.imgur.com/4jA5PpN.jpg');
+INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (4,4, 'Heber st',2801, 15222, 'PA','Pittsburgh','USA', '2/05/2019', 'Reported', '40.457215', '-79.9756', 1, '04/05/2019','04/15/2019','https://i.pinimg.com/236x/b4/9e/3c/b49e3c4cb1f1cfd451abf9d7046e1d82--car-humor-car-memes.jpg' );
+INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (5,5, 'Forbes Ave',2112, 15217, 'PA','Pittsburgh', 'USA', '1/25/2018','Inspected', '40.433946', '-79.9232', 3, '12/20/2018','12/29/2019', 'http://i.imgur.com/4jA5PpN.jpg');
 
-INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (6,5, 'Louis Ave',2112, 15217, 'PA','Pittsburgh', 'USA', '01/01/2018','Inspected', 40.40, -79.92, 3, '2/2/2019','12/29/2019', 'http://i.imgur.com/4jA5PpN.jpg');
+INSERT INTO pothole(pothole_id, user_id, street_Name, street_Number, zip_Code, state, city, country, status_Date, status_Code, lat, lng, severity, report_Date, repair_Date, img_Url) VALUES (6,5, 'Louis Ave',2112, 15217, 'PA','Pittsburgh', 'USA', '01/01/2018','Inspected', '40.40','-79.92', 3, '2/2/2019','12/29/2019', 'http://i.imgur.com/4jA5PpN.jpg');
 
 INSERT INTO pothole(street_number, street_name, city, state, zip_code, country, lat, lng, img_url) VALUES (3, 'Sheridan', 'Williamsport', 'PA', 17701, 'USA', 50, 50, 'fakeURL');
 
