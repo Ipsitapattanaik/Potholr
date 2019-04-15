@@ -11,7 +11,7 @@ header img {
 
 nav {
 	margin-top: 10px;
-	background-color: orange;
+	background-color: #ffb81c;
 	padding: 1px;
 	margin-bottom: 5px;
 }
@@ -63,7 +63,8 @@ html, body {
 }
 
 footer {
-	background-color: orange;
+    background-color: #ffb81c;
+    color: #003595;
 	border-radius: 100px;
 	list-style: none;
 	text-align: center;
@@ -90,4 +91,11 @@ footer {
 	margin-right: auto;
 	width: 50%;
 	
+}
+
+.about-picture{
+    border-radius:200px;
+    height:200px;
+    margin-top:20px;
+    margin-bottom:20px;
 }
