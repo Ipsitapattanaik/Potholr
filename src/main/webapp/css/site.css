@@ -124,6 +124,6 @@ footer {
     margin-bottom:20px;
 }
 
-/* #group-picture{ */
-/*     border-radius: 20%; */
-/* }  */
+#group-picture{
+    border-radius: 20%;
+} 
