@@ -2,9 +2,10 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
+
 <h1 class="page-title">About Us</h1>
 
-<p>In the spring 2019, our founder and CEO Caitie Zajko suffered three flat tires on her car due to the rampant potholes in the city of Pittsburgh. This inspired her to found Potholr, an app to crowdsource the locations of potholes and pressure municipalities to repair them. Since then, we have grown and our app now functions anywhere in the United States.</p>
+<p>In spring 2019, our founder and CEO Caitie Zajko suffered three flat tires on her car due to the rampant potholes in the city of Pittsburgh. This inspired her to found Potholr, an app to crowdsource the locations of potholes and pressure municipalities to repair them. Since then, we have grown and our app now functions anywhere in the United States.</p>
 
 <h2 class="page-subtitle">Meet the Team</h2>
 
@@ -42,7 +43,8 @@
 <c:url var="ArthurPicture" value="/img/ArthurMuellerPicture.png"/>
 <a href="${ArthurLinkedIn}"><img src="${ArthurPicture}" class="about-picture"  /></a>
 
-<p>Bio Goes Here</p>
+<p>After graduating from the University of Pittsburgh in 2018, Arthur enrolled in <a href="https://www.techelevator.com/" target="_blank">Tech Elevator</a> to learn about software development.</p>
+<p>Arthur is a die-hard fan of the University of Pittsburgh, as well as the Portland Trail Blazers and the NTT IndyCar Series. In his free time he enjoys watching sports and action movies.</p>
 
 <h3>Ipsita Pattanaik</h3>
 
@@ -52,7 +54,7 @@
 <c:url var="IpsitaPicture" value="/img/IpsitaPattanaikPicture.png"/>
 <a href="${IpsitaLinkedIn}"><img src="${IpsitaPicture}" class="about-picture"  /></a>
 
-<p>Bio Goes Here</p>
+<p>A self motivated individual who sees every challenge as an opportunity, well connected professional always believes in team play. Focused to keeps everything moving smoothly and makes sure all the deadlines are met and achieved highest standards. Looking for a software developer role upon graduation in April 2019</p>
 
 <h3>Kaelin Kamzelski</h3>
 

@@ -106,7 +106,29 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		String sqlDeletePothole = "DELETE FROM pothole WHERE pothole_Id = ?";
 		jdbcTemplate.update(sqlDeletePothole, pothole_Id);
 	}
+	
+	
+	@Override
+	public List<Pothole> getListOfPotholesByUserId(Long user_Id) {
+	String sqlStatement = "SELECT * FROM pothole WHERE user_id = ?";
+	List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+	SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement, user_Id);
+	while(results.next()) {
+	listOfPotholes.add(mapRowToPothole(results));
+	}
+	return listOfPotholes;
+	}
 
+
+	@Override
+	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
+	String sqlInsertStatement = "INSERT INTO pothole (user_id, street_number, street_Name, city, state, zip_code, country, lat, lng) "
+	+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	jdbcTemplate.update(sqlInsertStatement, userId, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
+	}
+	
+	
+	
 	public long getNextPotholeId() {
 		SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('pothole_pothole_Id_seq')");
 		if (nextIdResult.next()) {

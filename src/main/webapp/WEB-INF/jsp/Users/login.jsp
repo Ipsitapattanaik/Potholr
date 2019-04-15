@@ -2,6 +2,15 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
+<style>
+ html{
+
+   background-image: url("../img/potholeroad.png"); 
+  
+
+}
+</style>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 	

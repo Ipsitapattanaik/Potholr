@@ -1,52 +1,99 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:url var="formAction" value="/users" />
-<form method="POST" action="${formAction}" enctype="multipart/form-data">
-<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
-	<div class="row">
-		<div class="col-sm-4"></div>
-		<div class="col-sm-4">
-			<div class="form-group">
-				<label for="address">Address: </label>
-				<input type="text" id="streetNumber" name="streetNumber" placeHolder="Street number" class="form-control" />
-				<input type="text" id="streetName" name="streetName" placeHolder="Street name" class="form-control" />
-				<input type="text" id="city" name="city" placeHolder="City" class="form-control" />
-				<input type="text" id="state" name="state" placeHolder="State" class="form-control" />
-				<input type="text" id="zipCode" name="zipCode" placeHolder="Zip code" class="form-control" />
-				<input type="text" id="country" name="country" placeHolder="Country" class="form-control" />
-			</div>
-			<div class="form-group">
-				<label for="severity">Severity: </label>
-				<input type="checkbox" name="1" value=""> 
-				<input type="checkbox" name="2" value=""> 
-				<input type="checkbox" name="3" value=""> 
-				<input type="severity" id="severity" name="severity" placeHolder="Severity" class="form-control" />
-			</div>
-			<div class="form-group">
-				<label for="confirmPassword">Confirm Password: </label>
-				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
-			</div>
-			<div class="form-group">
-				<h3>File Upload:</h3>
-      			Select a file to upload: <br />
-      			<form action = "UploadServlet" method = "post"
-         		enctype = "multipart/form-data">
-         		<input type = "file" name = "file" size = "50" />
-         		<br />
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</div>
-		<div class="col-sm-4"></div>
-	</div>
-</form>
+<c:import url="/WEB-INF/jsp/common/header.jsp"/>
+<c:url value="/js" var="jsHref"/>
+<script src="${jsHref}/delete.js"></script>
 
-</body>
-</html>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title">Employee Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="updatePothole">
+        <div class="container innerUpdate">
+
+            <c:url var="potholeUpdateLink" value="/potholes/employeePotholeUpdate"/>
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <b>Pothole Id: </b>
+                </div>
+                <div class="col-xs-8">
+                    <c:out value="${pothole.pothole_id}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <b>Street Name: </b>
+                </div>
+                <div class="col-xs-8">
+                    <c:out value="${pothole.street_Name}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <b>Reported: </b>
+                </div>
+                <div class="col-xs-8">
+                    <c:out value="${pothole.report_Date}"/>
+                </div>
+            </div>
+
+            <form method="POST" action="${potholeUpdateLink}">
+                <input type="hidden" name="potholeId" value="${pothole.id}">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <label for="severity">Pothole Severity:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select name="severity">
+                            <option value="${pothole.severity}">current: <c:out value="${pothole.severity}"/></option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <label for="statusCode">Status Code:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select name="statusCode">
+                            <option value="${pothole.status_Code}">current: <c:out
+                                    value="${pothole.status_Code}"/></option>
+                            <option value="reported">Reported</option>
+                            <option value="inspected">Inspected</option>
+                            <option value="repaired">Repaired</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <label for="statusDate">Status Date:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="date" type="date" name="statusDate" value="${pothole.status_Date}">
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-warning">Update Pothole</button>
+            </form>
+
+            <c:url var="potholeDeleteLink" value="/potholes/deletePothole"/>
+            <form id="deleteForm" method="POST" action="${potholeDeleteLink}">
+                <input type="hidden" name="potholeId" value="${pothole.pothole_id}">
+                <button id="deletePothole" type="submit" class="btn btn-danger">Delete Pothole</button>
+                <p id="demo"></p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<c:import url="/WEB-INF/jsp/common/footer.jsp"/>

@@ -2,7 +2,10 @@ package com.techelevator.controller;
 
 import com.techelevator.model.Pothole;
 import com.techelevator.model.PotholeDAO;
+import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
+
+import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -85,9 +89,10 @@ public class PotholeController {
 		return "redirect:/Potholes/allPotholes";
 	}
 
+	
 	@RequestMapping(path = "/Potholes/report", method = RequestMethod.GET)
-	public String showReport(Model model, HttpSession session, RedirectAttributes attr) {
-
+	public String reportPothole(Model model, HttpSession session, RedirectAttributes attr) {
+		User user = (User)session.getAttribute("user");
 //		String currentUser = (String) session.getAttribute("currentUser");
 
 		return "/Potholes/report";
@@ -98,4 +103,18 @@ public class PotholeController {
 //			return "redirect:/User/login";
 //		}
 	}
+	
+	@RequestMapping(path="/Potholes/report", method=RequestMethod.POST)
+	public String savePothole(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+	//	User user = (User)session.getAttribute("user");
+		Long userId = Long.parseLong(request.getParameter("userId"));
+		System.out.println("Street number is " + pothole.getStreetNumber());
+		System.out.println("Latitude is " + pothole.getLat());
+		
+//	System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | "
+//	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());
+	potholeDAO.savePothole(userId, pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
+	return "redirect:/Users/userDashboard";
+	}
+	
 }

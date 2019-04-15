@@ -31,8 +31,13 @@ public class JDBCUserDAO implements UserDAO {
 //		
 //		jdbcTemplate.update("INSERT INTO app_user(user_name, password, salt) VALUES (?, ?, ?)",
 //				userName, hashedPassword, saltString);
-		String sqlInsertStatement = "INSERT INTO app_user (user_name, email, phone, password, is_employee) VALUES (?, ?, ?, ?, ?);";
-		jdbcTemplate.update(sqlInsertStatement, userName, email, phoneNumber, password, isEmployee);
+		String sqlGetNextId = "SELECT nextval('app_user_user_id_seq')";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetNextId);
+		results.next();
+		int id = results.getInt(1);
+		System.out.println("Next id is " + id);
+		String sqlInsertStatement = "INSERT INTO app_user (user_id, user_name, email, phone, password, is_employee) VALUES (?, ?, ?, ?, ?, ?);";
+		jdbcTemplate.update(sqlInsertStatement, id, userName, email, phoneNumber, password, isEmployee);
 		
 	}
 
