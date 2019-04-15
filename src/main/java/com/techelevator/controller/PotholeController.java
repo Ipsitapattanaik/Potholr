@@ -104,6 +104,7 @@ public class PotholeController {
 		Long userId = Long.parseLong(request.getParameter("userId"));
 		System.out.println("Street number is " + pothole.getStreetNumber());
 		System.out.println("Latitude is " + pothole.getLat());
+		System.out.println("Longitude is " + pothole.getLng());
 		
 //	System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | "
 //	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());
