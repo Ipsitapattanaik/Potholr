@@ -10,7 +10,7 @@
 <h2 class="page-subtitle">Meet the Team</h2>
 
 <c:url var="GroupPicture" value="/img/GroupPicture.jpg"/>
-<img src="${GroupPicture}" style="width:100%"/>
+<img src="${GroupPicture}" style="width:100%" id="group-picture"/>
 
 <h3>Caitie Zajko</h3>
 
