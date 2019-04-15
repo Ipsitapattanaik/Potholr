@@ -23,6 +23,7 @@ public class Pothole {
 	private String reportUser;
 	private String imgUrl;
 	private long userId;
+	
 	public Long getPotholeId() {
 		return potholeId;
 	}
