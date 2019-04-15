@@ -15,12 +15,8 @@ public interface PotholeDAO {
 
 	public void deletePotholeById(Long pothole_Id);
 
-	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng);
-
+	public void savePothole(long user_id, int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng);
+	
 	public List<Pothole> getListOfPotholesByUserId(Long user_Id);
-
-	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code,
-			String country, Long lat, Long lng);
-
-
+	
 }

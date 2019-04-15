@@ -42,10 +42,12 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	}
 	
 	@Override
-	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
-		String sqlInsertStatement = "INSERT INTO pothole (street_number, street_Name, city, state, zip_code, country, lat, lng) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-		jdbcTemplate.update(sqlInsertStatement, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
+	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
+		String sqlInsertStatement = "INSERT INTO pothole (user_id, street_number, street_Name, city, state, zip_code, country, lat, lng) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		System.out.println("Before insert");
+		jdbcTemplate.update(sqlInsertStatement, userId, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
+		System.out.println("After insert");
 	}
 
 //	String dateReported = "3/11/89";
@@ -64,6 +66,17 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 		jdbcTemplate.update(sqlUpdate, getNextPotholeId(), newPothole.getStreetName(), newPothole.getLat(),
 				newPothole.getLng());
+	}
+	
+	@Override
+	public List<Pothole> getListOfPotholesByUserId(Long user_Id) {
+		String sqlStatement = "SELECT * FROM pothole WHERE user_id = ?";
+		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement, user_Id);
+		while(results.next()) {
+			listOfPotholes.add(mapRowToPothole(results));
+		}
+		return listOfPotholes;
 	}
 
 	
@@ -142,7 +155,6 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		thePothole.setStreetNumber(results.getInt("street_Number"));
 		thePothole.setZipCode(results.getInt("zip_Code"));
 		thePothole.setReportUser(results.getString("report_User"));
-		thePothole.setUserId(results.getLong("user_id"));
 
 		return thePothole;
 	}

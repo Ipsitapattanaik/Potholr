@@ -3,6 +3,9 @@ package com.techelevator.model;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import org.springframework.stereotype.Component;
+
+
 public class Pothole {
 	private Long potholeId;
 	private String streetName;
@@ -20,6 +23,7 @@ public class Pothole {
 	private String reportUser;
 	private String imgUrl;
 	private long userId;
+	
 	public Long getPotholeId() {
 		return potholeId;
 	}
