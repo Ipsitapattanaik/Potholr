@@ -35,7 +35,9 @@
 			</div>
 			<div class="form-group">
 				<label for="userId">User ID: </label>
-				<input type="text" id="userId" name="userId" placeHolder="User ID" class="form-control" />
+				<c:url var="userId" value="${user.userId}"/>
+				<input type="hidden" id="userId" value="${userId}" placeHolder="User ID" class="form-control" />
+				<h6>${user.userId}</h6>  
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
