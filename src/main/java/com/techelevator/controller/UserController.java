@@ -157,7 +157,8 @@ public class UserController {
 
 	@RequestMapping(path="/Users/employeeDashboard", method=RequestMethod.GET)
 	public String displayEmployeeDashboard(ModelMap modelHolder, HttpSession session) {
-
+		User user = (User) session.getAttribute("user");
+		modelHolder.addAttribute("potholes", potholeDAO.getListOfPotholesByUserId(user.getUserId()));
 	// User user = (User) session.getAttribute("user");
 	return "Users/employeeDashboard";
 	}
