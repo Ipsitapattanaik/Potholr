@@ -15,7 +15,7 @@ public class Pothole {
 	private String state;
 	private String country;
 	private Date statusDate;
-	private int statusCode;
+	private String statusCode;
 	private String lat;
 	private String lng;
 	private int severity;
@@ -72,10 +72,10 @@ public class Pothole {
 	public void setStatusDate(Date statusDate) {
 		this.statusDate = statusDate;
 	}
-	public int getStatusCode() {
+	public String getStatusCode() {
 		return statusCode;
 	}
-	public void setStatusCode(int statusCode) {
+	public void setStatusCode(String statusCode) {
 		this.statusCode = statusCode;
 	}
 	
