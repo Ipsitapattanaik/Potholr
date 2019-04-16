@@ -40,10 +40,10 @@ nav ul li {
 }
 
 #map {
-	height: 300px;
-	width: 30%;
+	height: 200px;
+	width: 20%;
 	align: right;
-}
+} 
 
 .employeeMap {
 	position: absolute;
