@@ -136,11 +136,8 @@ width: 50%;
 	background-color: rgb(200, 200, 200);
 }
 
-#group-picture{
-    border-radius: 2%;
-}
-
-#message{
-    width:100%;
-    height:200px;
+#firstColumnTableView{
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 15%;
 }
