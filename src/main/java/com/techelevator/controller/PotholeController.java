@@ -31,10 +31,12 @@ import java.util.Date;
 public class PotholeController {
 	
 	private PotholeDAO potholeDAO;
+	private UserDAO userDAO;
 	
 	@Autowired
-	public PotholeController(PotholeDAO potholeDAO) {
+	public PotholeController(PotholeDAO potholeDAO, UserDAO userDAO) {
 		this.potholeDAO= potholeDAO;
+		this.userDAO = userDAO;
 	}
 
 	@RequestMapping(path = "/Potholes/allPotholes", method = RequestMethod.GET)
@@ -54,10 +56,12 @@ public class PotholeController {
 
 	@RequestMapping(path = "/Users/employeeDashboard", method = RequestMethod.POST)
 	public String employeeModifyPotholePost(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
-		System.out.println("Inside the employeeModifyPotholePost");
-//		LocalDate date = pothole.getStatusDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		long potholeId = Long.parseLong(request.getParameter("PotholeId"));
+		int severity = Integer.parseInt(request.getParameter("severity"));
+		String statusCode = request.getParameter("statusCode");
+		
 		LocalDate date = LocalDate.now();
-		potholeDAO.updatePotholeById(pothole.getStatusCode(), date, pothole.getSeverity(), pothole.getPotholeId());
+		potholeDAO.updatePotholeById(statusCode, date, severity, potholeId);
 		return "redirect:/Users/employeeDashboard";
 	}
 	
@@ -65,8 +69,21 @@ public class PotholeController {
 	public String savePothole(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
 		Long userId = Long.parseLong(request.getParameter("userId"));
 	potholeDAO.savePothole(userId, pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng(), pothole.getSeverity());
-	return "redirect:/Users/userDashboard";
-	}
+
+	
+	User loggedUser = userDAO.searchForUserByUserId(userId);
+	
+//	session.setAttribute("user", loggedUser);
+	
+	
+	if(loggedUser.isEmployee()) {
+		return "redirect:/Users/employeeDashboard";
+
+		    }
+		    else {
+		        return "redirect:/Users/userDashboard";
+		    }
+}
 
 	@RequestMapping(path = "/potholes/deletePothole", method = RequestMethod.POST)
 	public String employeeDeletePothole(@RequestParam long pothole_Id) {

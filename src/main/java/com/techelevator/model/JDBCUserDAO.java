@@ -43,7 +43,6 @@ public class JDBCUserDAO implements UserDAO {
 
 	@Override
 	public User searchForUsernameAndPassword(String userName, String password) {
-		System.out.println("Enter the searchForUsernameAndPassword");
 		String sqlSearchForUser = "SELECT * "+
 							      "FROM app_user "+
 							      "WHERE user_name = ? ";
@@ -78,6 +77,30 @@ public class JDBCUserDAO implements UserDAO {
 
 	}
 
+	
+	@Override
+	public User searchForUserByUserId(Long userId) {
+		String sqlSearchForUser = "SELECT * "+
+							      "FROM app_user "+
+							      "WHERE user_id = ? ";
+		
+		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUser, userId);
+	
+		User thisUser = new User();
+		if(user.next()) {
+			thisUser.setUserId(user.getLong("user_id"));
+			thisUser.setUserName(user.getString("user_name"));
+			thisUser.setPassword(user.getString("password"));
+			thisUser.setEmail(user.getString("email"));
+			thisUser.setPhone(user.getString("phone"));
+			thisUser.setEmployee(user.getBoolean("is_employee"));
+			}
+
+		return thisUser;
+
+	}
+
+	
 	@Override
 	public void updatePassword(String userName, String password) {
 		jdbcTemplate.update("UPDATE app_user SET password = ? WHERE user_name = ?", password, userName);

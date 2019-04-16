@@ -65,11 +65,9 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	@Override
 	public void updatePotholeById(String status_Code, LocalDate status_Date, int severity, Long pothole_Id) {
 		String sqlUpdatePothole = "UPDATE pothole " + "SET status_code = ?, status_date = ?, severity = ? "
-				+ "WHERE pothole_id = ? ";
-		System.out.println("Before the update statement");
-		jdbcTemplate.update(sqlUpdatePothole, status_Code, status_Date, severity, pothole_Id);
-		System.out.println("After the update statement");
-
+				+ "WHERE pothole_id = " + pothole_Id;
+		jdbcTemplate.update(sqlUpdatePothole, status_Code, status_Date, severity);
+	
 	}
 
 	@Override

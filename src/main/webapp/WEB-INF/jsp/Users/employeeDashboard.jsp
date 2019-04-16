@@ -194,7 +194,7 @@ nav ul li {
 				<label for="potholeId">Pothole ID:</label>
 			</div>
 			<div class="col-xs-8">
-				<select name="Pothole ID">
+				<select name="PotholeId">
 					<c:forEach var="pothole" items="${potholes}">
 						<option value="${pothole.potholeId}">${pothole.potholeId}</option>
 					</c:forEach>

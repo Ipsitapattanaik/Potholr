@@ -12,4 +12,6 @@ public interface UserDAO {
 	
 	public boolean seeIfUserIsEmployee(String userName);
 
+	User searchForUserByUserId(Long userId);
+
 }
