@@ -43,16 +43,15 @@ nav ul li {
 	height: 300px;
 	width: 30%;
 	align: right;
-	
-}
-.employeeMap{
-	  position: absolute;
-  	right: 0px;
- 	 width: 300px;
-  	padding: 10px;
-  	margin-right: 100px; 
 }
 
+.employeeMap {
+	position: absolute;
+	right: 0px;
+	width: 300px;
+	padding: 10px;
+	margin-right: 100px;
+}
 </style>
 
 
@@ -157,8 +156,8 @@ nav ul li {
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
 		
 	</script>
-	
-	
+
+
 	<c:forEach var="pothole" items="${potholes}">
 		<table class="tableView">
 			<tr>
@@ -184,13 +183,17 @@ nav ul li {
 		</table>
 	</c:forEach>
 
-	
+
 
 	<br></br> <br></br>
 
-	<form method="POST" action="${potholeUpdateLink}">
+	<form method="POST" action="${potholeUpdateLink}" value="/potholes/EmployeePotholeUpdate">
 		<input type="hidden" name="potholeId" value="${pothole.id}">
 		<div class="row">
+			<div class="col-x-4">
+				<label for="potholeId">Pothole ID:</label>
+				<input type="text" for="potholeId"></input>
+				</div>
 			<div class="col-xs-4">
 				<label for="severity">Pothole Severity:</label>
 			</div>
@@ -232,23 +235,14 @@ nav ul li {
 		<button type="submit" class="btn btn-warning">Update Pothole</button>
 	</form>
 
-	<c:url var="potholeDeleteLink" value="/potholes/deletePothole" />
-	<form id="deleteForm" method="POST" action="${potholeDeleteLink}">
-		<input type="hidden" name="potholeId" value="${pothole.pothole_id}">
-		<button id="deletePothole" type="submit" class="btn btn-danger">Delete
-			Pothole</button>
-		<p id="demo"></p>
-	</form>
 
-	<br>
 
 
 </div>
 </div>
 </div>
 <button id="Reportpotholetab" type="submit">
-	<a href="/capstone/Potholes/report"  >Report a
-		Pothole</a>
+	<a href="/capstone/Potholes/report">Report a Pothole</a>
 </button>
 
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />
