@@ -47,11 +47,10 @@ padding: 4px;
 }
 
 #map {
-height: 400px;
-width: 40%;
-align : right;
-
-}
+	height: 300px;
+	width: 400px;
+	align: right;
+} 
 
 .button:active {
   background-color: #3e8e41;
@@ -63,39 +62,19 @@ img {
   height: auto;
 }
 
+.userMap {
+	position: absolute;
+	right: 0px;
+	/* width: 200px; */
+	padding: 10px;
+	margin-right: 100px;
+}
+
 </style>
 
-<br>
-<body>
-<c:forEach var = "pothole" items="${potholes}">
-<table class="tableView" >
-  <tr>
-  	<th>Reported Date</th>
-  	<th>Last updated</th>
-    <th>Pothole Id</th>
-    <th>Reported Date</th>
-    <th>Street Name</th>
-    <th>Severity</th>
-    <th>Status</th>
-    <th>Zip Code</th>
-  </tr>
- 	<tr>
- 	<td><c:out value="${pothole.reportDate}" /></td>
- 	<td><c:out value="${pothole.statusDate}" /></td>
- 	<td><c:out value="${pothole.potholeId}" /></td>
-    <td><c:out value="${pothole.reportDate}" /></td>
-    <td><c:out value="${pothole.streetName}" /></td>
-    <td><c:out value="${pothole.severity}" /></td>
-    <td><c:out value="${pothole.statusCode}" /></td>
-    <td><c:out value="${pothole.zipCode}" /></td>
-  </tr> 
- </table>
- </c:forEach>
-</body>
 
-<br>
  
-<div id="map"></div>
+<div class = "userMap" id="map"></div>
 <script>
 	var map;
 	function initMap() {
@@ -193,6 +172,37 @@ img {
 	
 </script>
     <br></br>
+    <br>
+    
+<body>
+<c:forEach var="pothole" items="${potholes}">
+		<table class="tableView">
+			<tr>
+				<th>Pothole Id</th>
+				<th>Reported Date</th>
+				<th>Street Name</th>
+			</tr>
+			<tr>
+				<td><c:out value="${pothole.potholeId}" /></td>
+				<td><c:out value="${pothole.reportDate}" /></td>
+				<td><c:out value="${pothole.streetName}" /></td>
+			</tr>
+			<tr>
+				<th>Severity</th>
+				<th>Status</th>
+				<th>Zip Code</th>
+			</tr>
+			<tr>
+				<td><c:out value="${pothole.severity}" /></td>
+				<td><c:out value="${pothole.statusCode}" /></td>
+				<td><c:out value="${pothole.zipCode}" /></td>
+			</tr>
+		</table>
+	</c:forEach>
+
+</body>
+
+<br>
     <br></br>  
     
     <button id="Reportpotholetab" type="submit"><a href="/capstone/Potholes/report" class = "button" >Report a Pothole</a></button>

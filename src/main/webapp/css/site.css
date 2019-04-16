@@ -101,6 +101,7 @@ html, body {
   margin: 10px;
   border: .5px solid black;
   box-shadow: 2px 2px #888888;
+  cursor: pointer;
   
   
 }
@@ -132,6 +133,10 @@ width: 50%;
 	margin: 20px;
 	margin-right:100px;
 	border-collapse: collapse;
+}
+
+td{
+	background-color :#ededed;
 }
 
 #backgroundColorCellTableView{

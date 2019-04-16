@@ -49,7 +49,7 @@
 				<input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
 			</div>
 			<div class="form-group">
-				<label for="password">Password: </label>
+				<label for="password">Password: (Must contain 6 characters)</label>
 				<input type="password" id="password" name="password" placeHolder="Password" class="form-control" />
 			</div>
 			<button type="submit" class="btn btn-primary">Login</button>
