@@ -186,54 +186,60 @@ nav ul li {
 
 
 	<br></br> <br></br>
-
-	<form method="POST" action="${potholeUpdateLink}" value="/potholes/EmployeePotholeUpdate">
-		<input type="hidden" name="potholeId" value="${pothole.id}">
+	<c:url var="formAction" value="/Users/employeeDashboard"/>
+	<form method="POST" action="${formAction}">
+	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 		<div class="row">
 			<div class="col-x-4">
 				<label for="potholeId">Pothole ID:</label>
-				<input type="text" for="potholeId"></input>
-				</div>
-			<div class="col-xs-4">
-				<label for="severity">Pothole Severity:</label>
 			</div>
 			<div class="col-xs-8">
-				<select name="severity">
-					<option value="${pothole.severity}">current:
-						<c:out value="${pothole.severity}" /></option>
-					<option value=1>1</option>
-					<option value=2>2</option>
-					<option value=3>3</option>
+				<select name="Pothole ID">
+					<c:forEach var="pothole" items="${potholes}">
+						<option value="${pothole.potholeId}">${pothole.potholeId}</option>
+					</c:forEach>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+		<div class="col-xs-4">
+			<label for="severity">Pothole Severity:</label>
+		</div>
+		<div class="col-xs-8">
+			<select name="severity">
+				<option value="${pothole.severity}" selected="selected"></option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
 
-				</select>
-			</div>
+			</select>
 		</div>
-		<div class="row">
-			<div class="col-xs-4">
-				<label for="statusCode">Status Code:</label>
-			</div>
-			<div class="col-xs-8">
-				<select name="statusCode">
-					<option value="${pothole.status_Code}">current:
-						<c:out value="${pothole.status_Code}" /></option>
-					<option value="reported">Reported</option>
-					<option value="inspected">Inspected</option>
-					<option value="repaired">Repaired</option>
-				</select>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-4">
-				<label for="statusDate">Status Date:</label>
-			</div>
-			<div class="col-xs-8">
-				<input id="date" type="date" name="statusDate"
-					value="${pothole.status_Date}">
-			</div>
-		</div>
-		<br>
-		<button type="submit" class="btn btn-warning">Update Pothole</button>
-	</form>
+</div>
+<div class="row">
+	<div class="col-xs-4">
+		<label for="statusCode">Status Code:</label>
+	</div>
+	<div class="col-xs-8">
+		<select name="statusCode">
+			<option value="${pothole.status_Code}"></option>
+			<option value="reported">Reported</option>
+			<option value="inspected">Inspected</option>
+			<option value="repaired">Repaired</option>
+		</select>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-4">
+		<label for="statusDate">Status Date:</label>
+	</div>
+<!-- 	<div class="col-xs-8">
+		<input id="date" type="date" name="statusDate">
+	</div>
+ --></div>
+<br>
+<!-- <button type="submit" class="btn btn-warning"><a href="/Users/employeeDashboard"> Update Pothole</a></button>
+ --><button type="submit" class="btn btn-warning">Update Pothole</button>
+</form>
 
 
 
@@ -244,6 +250,8 @@ nav ul li {
 <button id="Reportpotholetab" type="submit">
 	<a href="/capstone/Potholes/report">Report a Pothole</a>
 </button>
+
+
 
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />
 

@@ -20,7 +20,7 @@ public interface PotholeDAO {
 	public List<Pothole> getListOfPotholesByUserId(Long user_Id);
 
 	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code,
-			String country, String lat, String lng);
+			String country, String lat, String lng, int severity);
 
 
 }

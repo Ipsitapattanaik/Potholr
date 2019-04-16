@@ -51,33 +51,21 @@ public class PotholeController {
 
 		return "/Potholes/allPotholes";
 	}
-	
-//	@RequestMapping(path="/Potholes/report", method=RequestMethod.POST)
-//	public String savePothole(@ModelAttribute Pothole pothole, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
-//		System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | " 
-//	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());
-//		potholeDAO.savePothole(pothole.getUserId(), pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
-//		return "redirect:/Users/userDashboard";
-//	}
 
-	@RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.GET)
-	public String employeeModifyPotholeGet(Model model, @RequestParam long pothole_Id) {
-
-		model.addAttribute("pothole", potholeDAO.getPotholeById(pothole_Id));
-
-		return "/Potholes/employeePotholeUpdate";
+	@RequestMapping(path = "/Users/employeeDashboard", method = RequestMethod.POST)
+	public String employeeModifyPotholePost(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+		System.out.println("Inside the employeeModifyPotholePost");
+//		LocalDate date = pothole.getStatusDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate date = LocalDate.now();
+		potholeDAO.updatePotholeById(pothole.getStatusCode(), date, pothole.getSeverity(), pothole.getPotholeId());
+		return "redirect:/Users/employeeDashboard";
 	}
-
-	@RequestMapping(path = "/Potholes/employeePotholeUpdate", method = RequestMethod.POST)
-	public String employeeModifyPotholePost(@RequestParam long pothole_Id, @RequestParam int severity,
-			@RequestParam String status_Code,
-			@RequestParam("status_Date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date status_Date) {
-
-		LocalDate localDate = status_Date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-		potholeDAO.updatePotholeById(status_Code, localDate, severity, pothole_Id);
-
-		return "redirect:/Potholes/allPotholes";
+	
+	@RequestMapping(path="/Potholes/report", method=RequestMethod.POST)
+	public String savePothole(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
+		Long userId = Long.parseLong(request.getParameter("userId"));
+	potholeDAO.savePothole(userId, pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng(), pothole.getSeverity());
+	return "redirect:/Users/userDashboard";
 	}
 
 	@RequestMapping(path = "/potholes/deletePothole", method = RequestMethod.POST)
@@ -103,16 +91,6 @@ public class PotholeController {
 //		}
 	}
 	
-	@RequestMapping(path="/Potholes/report", method=RequestMethod.POST)
-	public String savePothole(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
-	//	User user = (User)session.getAttribute("user");
-		Long userId = Long.parseLong(request.getParameter("userId"));
-		System.out.println("User id is" + userId);
-		
-//	System.out.println(pothole.getUserId() + " | " + pothole.getStreetNumber() + " | " + pothole.getStreetName() + " | " + pothole.getCity() + " | "
-//	+ pothole.getState() + " | " + pothole.getZipCode() + " | " + pothole.getCountry() + " | " + pothole.getLat() + " | " + pothole.getLng());
-	potholeDAO.savePothole(userId, pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng());
-	return "redirect:/Users/userDashboard";
-	}
+	
 	
 }

@@ -39,18 +39,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	        potholeList.add(thePothole);
 	    }
 	    return potholeList;
-	}
-	
-
-//	String dateReported = "3/11/89";
-//	String repairDate = "3/11/89";
-//	int potHoleId = 101;
-//	int stateCode = 3;
-//	String severity = "Inspected";
-//	String statusDate = "3/11/89";
-//	int userId = 6;
-//	String imgURL = "word";
-	
+	}	
 	
 	@Override
 	public void reportPothole(Pothole newPothole) {
@@ -59,10 +48,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		jdbcTemplate.update(sqlUpdate, getNextPotholeId(), newPothole.getStreetName(), newPothole.getLat(),
 				newPothole.getLng());
 	}
-	
 
-
-	
 
 	@Override
 	public Pothole getPotholeById(Long pothole_Id) {
@@ -78,9 +64,11 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 	@Override
 	public void updatePotholeById(String status_Code, LocalDate status_Date, int severity, Long pothole_Id) {
-		String sqlUpdatePothole = "UPDATE pothole " + "SET status_Code = ?, status_Date = ?, severity = ? "
-				+ "WHERE pothole_Id = ? ";
+		String sqlUpdatePothole = "UPDATE pothole " + "SET status_code = ?, status_date = ?, severity = ? "
+				+ "WHERE pothole_id = ? ";
+		System.out.println("Before the update statement");
 		jdbcTemplate.update(sqlUpdatePothole, status_Code, status_Date, severity, pothole_Id);
+		System.out.println("After the update statement");
 
 	}
 
@@ -106,20 +94,11 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	
 
 	@Override
-	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, String lat, String lng) {
-	String sqlInsertStatement = "INSERT INTO pothole (user_id, street_number, street_Name, city, state, zip_code, country, lat, lng) "
-	+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-	jdbcTemplate.update(sqlInsertStatement, userId, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
+	public void savePothole(long userId, int street_Number, String street_Name, String city, String state, int zip_Code, String country, String lat, String lng, int severity) {
+	String sqlInsertStatement = "INSERT INTO pothole (user_id, street_number, street_Name, city, state, zip_code, country, lat, lng, severity) "
+	+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	jdbcTemplate.update(sqlInsertStatement, userId, street_Number, street_Name, city, state, zip_Code, country, lat, lng, severity);
 	}
-	
-
-//	@Override
-//	public void savePothole(int street_Number, String street_Name, String city, String state, int zip_Code, String country, Long lat, Long lng) {
-//		String sqlInsertStatement = "INSERT INTO pothole (street_number, street_Name, city, state, zip_code, country, lat, lng) "
-//				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-//		jdbcTemplate.update(sqlInsertStatement, street_Number, street_Name, city, state, zip_Code, country, lat, lng);
-//	}
-
 	
 	
 	public long getNextPotholeId() {
