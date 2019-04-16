@@ -90,16 +90,18 @@ html, body {
 #Reportpotholetab 
 { 
 	
-  background-image: url("../img/crackedpothole.png");
+  /* background-image: url("../img/crackedpothole.png"); */
   background-position: center;
   border-radius: 4px;
-  color: white;
+  text-color: white;
+  background-color: #ecaf22;
   font-size: 2em;
   height: 50px;
   width: 400px;
   margin: 10px;
   border: .5px solid black;
   box-shadow: 2px 2px #888888;
+  
   
 }
 

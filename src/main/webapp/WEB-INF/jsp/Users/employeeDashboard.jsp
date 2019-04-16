@@ -43,34 +43,17 @@ nav ul li {
 	height: 300px;
 	width: 30%;
 	align: right;
+	
 }
+.employeeMap{
+	  position: absolute;
+  	right: 0px;
+ 	 width: 300px;
+  	padding: 10px;
+  	margin-right: 100px; 
+}
+
 </style>
-
-
-	<c:forEach var="pothole" items="${potholes}">
-		<table class="tableView">
-			<tr>
-				<th>Pothole Id</th>
-				<th>Reported Date</th>
-				<th>Street Name</th>
-			</tr>
-			<tr>
-				<td><c:out value="${pothole.potholeId}" /></td>
-				<td><c:out value="${pothole.reportDate}" /></td>
-				<td><c:out value="${pothole.streetName}" /></td>
-			</tr>
-			<tr>
-				<th>Severity</th>
-				<th>Status</th>
-				<th>Zip Code</th>
-			</tr>
-			<tr>
-				<td><c:out value="${pothole.severity}" /></td>
-				<td><c:out value="${pothole.statusCode}" /></td>
-				<td><c:out value="${pothole.zipCode}" /></td>
-			</tr>
-		</table>
-	</c:forEach>
 
 
 
@@ -174,6 +157,34 @@ nav ul li {
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
 		
 	</script>
+	
+	
+	<c:forEach var="pothole" items="${potholes}">
+		<table class="tableView">
+			<tr>
+				<th>Pothole Id</th>
+				<th>Reported Date</th>
+				<th>Street Name</th>
+			</tr>
+			<tr>
+				<td><c:out value="${pothole.potholeId}" /></td>
+				<td><c:out value="${pothole.reportDate}" /></td>
+				<td><c:out value="${pothole.streetName}" /></td>
+			</tr>
+			<tr>
+				<th>Severity</th>
+				<th>Status</th>
+				<th>Zip Code</th>
+			</tr>
+			<tr>
+				<td><c:out value="${pothole.severity}" /></td>
+				<td><c:out value="${pothole.statusCode}" /></td>
+				<td><c:out value="${pothole.zipCode}" /></td>
+			</tr>
+		</table>
+	</c:forEach>
+
+	
 
 	<br></br> <br></br>
 
@@ -236,7 +247,7 @@ nav ul li {
 </div>
 </div>
 <button id="Reportpotholetab" type="submit">
-	<a href="/capstone/Potholes/report" class="button">Report a
+	<a href="/capstone/Potholes/report"  >Report a
 		Pothole</a>
 </button>
 
