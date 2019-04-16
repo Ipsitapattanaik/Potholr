@@ -30,9 +30,8 @@ public class UserController {
 	private PotholeDAO potholeDAO;
 
 	@Autowired
-	public UserController(UserDAO userDAO, PotholeDAO potholeDAO) {
+	public UserController(UserDAO userDAO) {
 		this.userDAO = userDAO;
-		this.potholeDAO = potholeDAO;
 	}
 
 	
@@ -112,23 +111,17 @@ public class UserController {
 			
 		}
 		session.setAttribute("user", loggedUser);
-		
 		//////////////
 		
 //		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhone(), user.getPassword(), user.isEmployee());
 
 		
 		//Need to start the session with a user
-		
-		if(loggedUser.isEmployee()) {
-			return "redirect:/Users/employeeDashboard";
-
-			    }
-			    else {
-			        return "redirect:/Users/userDashboard";
-			    }
 //
+System.out.println("Just before the redirect");		
+		return "redirect:/Users/userDashboard";
 	}
+	
 	
 //	//added new set of code -create user method
 //	@RequestMapping(path="/User/login", method= RequestMethod.POST)
@@ -140,8 +133,8 @@ public class UserController {
 	
 	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.GET)
 	public String displayUserDashboard(ModelMap modelHolder, HttpSession session) {
+		
 		User user = (User) session.getAttribute("user");
-		modelHolder.addAttribute("potholes", potholeDAO.getListOfPotholesByUserId(user.getUserId()));
 //		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
 //		listOfPotholes = potholeDAO.getListOfPotholesByUserId(user.getUserId());
 		System.out.println("In the displayUserDashboard method. The user is " + user.getUserName());
@@ -155,11 +148,5 @@ public class UserController {
 //	return "Home";
 //	}
 
-	@RequestMapping(path="/Users/employeeDashboard", method=RequestMethod.GET)
-	public String displayEmployeeDashboard(ModelMap modelHolder, HttpSession session) {
-
-	// User user = (User) session.getAttribute("user");
-	return "Users/employeeDashboard";
-	}
 	
 }

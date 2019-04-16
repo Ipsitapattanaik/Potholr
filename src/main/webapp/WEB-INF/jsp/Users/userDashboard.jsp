@@ -1,3 +1,16 @@
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:import url="/WEB-INF/jsp/Common/header.jsp" />
+
+<h1>User Dashboard</h1>
+<h2>Welcome ${user.getUserName}</h2>
+
+  
+
+<c:import url="/WEB-INF/jsp/Common/footer.jsp" /> --%>
+
+
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
@@ -67,30 +80,43 @@ img {
 
 <br>
 <body>
-<c:forEach var = "pothole" items="${potholes}">
+
 <table class="tableView" >
   <tr>
-  	<th>Reported Date</th>
-  	<th>Last updated</th>
     <th>Pothole Id</th>
     <th>Reported Date</th>
     <th>Street Name</th>
-    <th>Severity</th>
-    <th>Status</th>
-    <th>Zip Code</th>
+    
   </tr>
- 	<tr>
- 	<td><c:out value="${pothole.reportDate}" /></td>
- 	<td><c:out value="${pothole.statusDate}" /></td>
- 	<td><c:out value="${pothole.potholeId}" /></td>
-    <td><c:out value="${pothole.reportDate}" /></td>
-    <td><c:out value="${pothole.streetName}" /></td>
-    <td><c:out value="${pothole.severity}" /></td>
-    <td><c:out value="${pothole.statusCode}" /></td>
-    <td><c:out value="${pothole.zipCode}" /></td>
+ <tr>
+    <td><c:out value="${pothole.pothole_id}" /></td>
+    <td><c:out value="${pothole.report_Date}" /></td>
+    <td><c:out value="${pothole.street_Name}" /></td>
+  </tr>
+  <tr>
+   <td><c:out value="${pothole.pothole_id}" /></td>
+    <td><c:out value="${pothole.report_Date}" /></td>
+    <td><c:out value="${pothole.street_Name}" /></td>
   </tr> 
+  
+  <tr>
+     <th>Severity</th>
+    <th>Status</th>
+    <th>Zip_Code</th>
+  </tr>
+  <tr>
+   <td><c:out value="${pothole.severity}" /></td>
+    <td><c:out value="${pothole.status_Code}" /></td>
+    <td><c:out value="${pothole.zip_Code}" /></td>
+  </tr>
+    <tr>
+   <td><c:out value="${pothole.severity}" /></td>
+    <td><c:out value="${pothole.status_Code}" /></td>
+    <td><c:out value="${pothole.zip_Code}" /></td>
+  </tr>
+  
  </table>
- </c:forEach>
+ 
 </body>
 
 <br>

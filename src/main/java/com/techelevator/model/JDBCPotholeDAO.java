@@ -91,7 +91,6 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	}
 	
 	
-	
 
 
 //	@Override
@@ -122,23 +121,23 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 	private Pothole mapRowToPothole(SqlRowSet results) {
 		Pothole thePothole = new Pothole();
-		thePothole.setPotholeId(results.getLong("pothole_id"));
-		thePothole.setStreetName(results.getString("street_name"));
+		thePothole.setPotholeId(results.getLong("pothole_Id"));
+		thePothole.setStreetName(results.getString("street_Name"));
 		thePothole.setState(results.getString("state"));
 		thePothole.setCity(results.getString("city"));
 		thePothole.setCountry(results.getString("country"));
-		thePothole.setStatusDate(results.getDate("status_date"));
-		thePothole.setStatusCode(results.getString("status_code"));
+		thePothole.setStatusDate(results.getDate("status_Date"));
+		thePothole.setStatusCode(results.getInt("status_Code"));
 		thePothole.setLat(results.getString("lat"));
 		thePothole.setLng(results.getString("lng"));
 		thePothole.setSeverity(results.getInt("severity"));
-		thePothole.setReportDate(results.getDate("report_date"));
-		thePothole.setImgUrl(results.getString("img_url"));
-		thePothole.setStreetNumber(results.getInt("street_number"));
-		thePothole.setZipCode(results.getInt("zip_code"));
-		thePothole.setUserId(results.getLong("user_id"));
+		thePothole.setReportDate(results.getDate("report_Date"));
+		thePothole.setImgUrl(results.getString("img_Url"));
+		thePothole.setStreetNumber(results.getInt("street_Number"));
+		thePothole.setZipCode(results.getInt("zip_Code"));
+		thePothole.setReportUser(results.getString("report_User"));
 
-		    return thePothole;
-		}
+		return thePothole;
+	}
 
 }
