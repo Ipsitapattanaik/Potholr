@@ -48,7 +48,7 @@ padding: 4px;
 
 #map {
 	height: 300px;
-	width: 400px;
+	width: 300px;
 	align: right;
 } 
 
