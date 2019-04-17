@@ -6,7 +6,6 @@
 	width: 100px;
 	}
 	
-
 </style>
 <h1>Welcome to PotholeVania!</h1>
 
