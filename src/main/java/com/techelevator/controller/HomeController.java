@@ -1,7 +1,9 @@
 package com.techelevator.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.techelevator.model.MailHelperClass;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.PotholeDAO;
 
@@ -45,9 +49,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(path="/contact", method=RequestMethod.POST)
-	public String acceptContactInput(ModelMap modelHolder) {
-		
-		
+	public String acceptContactInput(ModelMap modelHolder, @RequestParam String name, @RequestParam String email,
+			@RequestParam String subject, @RequestParam String message) throws UnsupportedEncodingException, MessagingException {
+		String text = "New message from " + name + " " + email + "\n" + message;
+		MailHelperClass.sendMail(name,"team404capstone@googlegroups.com", subject, text);
 		return "redirect:/ThankYouForYourInput";
 	}
 	
