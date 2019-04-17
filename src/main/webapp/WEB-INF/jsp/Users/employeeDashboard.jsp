@@ -223,14 +223,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05
 		</select>
 	</div>
 </div>
-<div class="row">
-	<div class="col-xs-4">
-		<label for="statusDate">Status Date:</label>
-	</div>
-<!-- 	<div class="col-xs-8">
-		<input id="date" type="date" name="statusDate">
-	</div>
- --></div>
 <br>
 <!-- <button type="submit" class="btn btn-warning"><a href="/Users/employeeDashboard"> Update Pothole</a></button>
  --><button type="submit" class="btn btn-warning">Update Pothole</button>
