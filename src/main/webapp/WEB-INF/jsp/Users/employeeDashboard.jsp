@@ -11,6 +11,12 @@
 	</div>
 
 	<style>
+	body , html{
+
+   background-image: url("../img/back10.jpg");
+  
+
+}
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
@@ -40,8 +46,8 @@ nav ul li {
 }
 
 #map {
-	height: 200px;
-	width: 20%;
+	height: 300px;
+	width: 30%;
 	align: right;
 } 
 
@@ -235,7 +241,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05
 </div>
 </div>
 <button id="Reportpotholetab" type="submit">
-	<a href="/capstone/Potholes/report">Report a Pothole</a>
+	<a href="/Potholes/report">Report a Pothole</a>
 </button>
 
 

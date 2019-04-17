@@ -33,12 +33,12 @@ public class LoginPageTest<webDriver1> {
 
 	@Before
 	public void openHomePage() {
-		webDriver1.get("http://localhost:8080/capstone/");
+		webDriver.get("http://localhost:8080/capstone/");
 	}
 	
 	@AfterClass
 	public static void closeWebBrowser() {
-		webDriver1.close();
+		webDriver.close();
 	}
 
 
@@ -49,48 +49,48 @@ public class LoginPageTest<webDriver1> {
 //	
 	@Test
 	public void clickLoginLink() {
-		WebElement LoginLink = webDriver1.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul[2]/li[2]/a"));
+		WebElement LoginLink = webDriver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul[2]/li[2]/a"));
 		LoginLink.click();
 		//return new SurveyInputPage (webDriver1);
 	}
 	
 	@Test
 	public void clickUserName() {
-		WebElement clickUserName = webDriver1.findElement(By.xpath("//*[@id=\\\"userName\\\"]"));
+		WebElement clickUserName = webDriver.findElement(By.xpath("//*[@id=\\\"userName\\\"]"));
 		clickUserName.click();
 		//return new SurveyInputPage (webDriver1);
 	}
 	
 	@Test
 	public void  enterUserName() {
-		WebElement userName = webDriver1.findElement(By.xpath("//*[@id=\"userName\"]"));
+		WebElement userName = webDriver.findElement(By.xpath("//*[@id=\"userName\"]"));
 		userName.sendKeys("ipp");
 		//return this;
 	}
 	@Test
 	public void clickPassword() {
-		WebElement clickPassword = webDriver1.findElement(By.xpath("//*[@id=\"password\"]"));
+		WebElement clickPassword = webDriver.findElement(By.xpath("//*[@id=\"password\"]"));
 		clickPassword.click();
 		//return new SurveyInputPage(webDriver1);
 	}
 	@Test
 	public void enterPassword() {
-		WebElement password = webDriver1.findElement(By.id("//*[@id=\\\"password\\\"]"));
+		WebElement password = webDriver.findElement(By.id("//*[@id=\\\"password\\\"]"));
 		password.sendKeys("ipp");
 		//return new SurveyInputPage(webDriver1);
 	}
 	
 	@Test
 	public void  login() {
-		WebElement goToPage = webDriver1.findElement(By.xpath("/html/body/div/div/div[2]/form/button"));
+		WebElement goToPage = webDriver.findElement(By.xpath("/html/body/div/div/div[2]/form/button"));
 		goToPage.click();
 		//return this;
 	}
 	
 	@Test
 	public void single_elements_can_be_found_by_tag_name() {
-		WebElement header = webDriver1.findElement(By.tagName("header"));
-		WebElement footer = webDriver1.findElement(By.tagName("footer"));
+		WebElement header = webDriver.findElement(By.tagName("header"));
+		WebElement footer = webDriver.findElement(By.tagName("footer"));
 		assertNotNull(header);
 		assertNotNull(footer);
 	}
