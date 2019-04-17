@@ -203,6 +203,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05
 <br>
     <br></br>  
     
-    <button id="Reportpotholetab" type="submit"><a href="/capstone/Potholes/report" class = "button" >Report a Pothole</a></button>
+    <button id="Reportpotholetab" type="submit"><a href="/Potholes/report" class = "button" >Report a Pothole</a></button>
 
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />

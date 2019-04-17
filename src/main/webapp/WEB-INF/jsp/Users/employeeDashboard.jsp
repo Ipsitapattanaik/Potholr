@@ -241,7 +241,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05
 </div>
 </div>
 <button id="Reportpotholetab" type="submit">
-	<a href="/capstone/Potholes/report">Report a Pothole</a>
+	<a href="/Potholes/report">Report a Pothole</a>
 </button>
 
 
