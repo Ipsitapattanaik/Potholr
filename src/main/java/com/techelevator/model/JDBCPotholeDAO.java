@@ -20,6 +20,45 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	public JDBCPotholeDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+	
+	@Override
+	public List<Pothole> getListOfAllPotholes() {
+	String sqlStatement = "SELECT * FROM pothole";
+	List<Pothole> listOfPotholes = new ArrayList<Pothole>();
+	SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
+	while(results.next()) {
+	listOfPotholes.add(mapRowToPothole(results));
+	}
+	return listOfPotholes;
+	}
+	
+	@Override
+	public String getArrayOfPothole(List<Pothole> listOfPotholes) {
+	String addToArrayString = "";
+	for (Pothole pothole: listOfPotholes) {
+	String picturePathString = pothole.getImgUrl();
+	if(picturePathString == null) {
+	picturePathString = "/capstone/img/potholeWarning.png";
+	}
+	addToArrayString += "{ position: new google.maps.LatLng(" + getLatitude(pothole.getLat()) +
+	"," + getLongitude(pothole.getLng()) + "), type: '" + pothole.getStatusCode() + "', "
+	+ "picture: '" + picturePathString + "', address: ' "
+	+ pothole.getStreetNumber() + " " + pothole.getStreetName() + "', id: "+
+	pothole.getPotholeId()+ ", severity: "+
+	pothole.getSeverity() + "},";
+	}
+	addToArrayString = "[" + addToArrayString.substring(0, addToArrayString.length()-1) + "]";
+	return addToArrayString;
+	}
+
+	private Float getLatitude(String lat) {
+	    return Float.valueOf(lat.trim());
+	// return Long.parseLong(lat.trim());
+	}
+
+	private Float getLongitude(String longitude) {
+	    return Float.valueOf(longitude.trim());
+	}
 
 	@Override
 	public List<Pothole> getListOfPotholes(String orderBy) {

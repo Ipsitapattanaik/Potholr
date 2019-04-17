@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -138,13 +139,17 @@ public class UserController {
 
 	
 	@RequestMapping(path="/Users/userDashboard", method=RequestMethod.GET)
-	public String displayUserDashboard(ModelMap modelHolder, HttpSession session) {
+	public String displayUserDashboard(ModelMap modelHolder, HttpSession session, HttpServletRequest req) {
 		User user = (User) session.getAttribute("user");
 		modelHolder.addAttribute("potholes", potholeDAO.getListOfPotholesByUserId(user.getUserId()));
+		List<Pothole> listOfPotholes = potholeDAO.getListOfAllPotholes();
+		req.setAttribute("arrayOfPotholes", potholeDAO.getArrayOfPothole(listOfPotholes));
 //		List<Pothole> listOfPotholes = new ArrayList<Pothole>();
 //		listOfPotholes = potholeDAO.getListOfPotholesByUserId(user.getUserId());
 		return "Users/userDashboard";
 	}	
+
+	
 	
 //	@RequestMapping(path="/User/userDashboard{userid}", method=RequestMethod.GET)
 //	public String displayUserDashboard(Map<String, Object> model, @PathVariable String userName) {
@@ -152,9 +157,11 @@ public class UserController {
 //	}
 
 	@RequestMapping(path="/Users/employeeDashboard", method=RequestMethod.GET)
-	public String displayEmployeeDashboard(ModelMap modelHolder, HttpSession session) {
+	public String displayEmployeeDashboard(ModelMap modelHolder, HttpSession session, HttpServletRequest req) {
 		User user = (User) session.getAttribute("user");
-		modelHolder.addAttribute("potholes", potholeDAO.getListOfPotholesByUserId(user.getUserId()));
+		modelHolder.addAttribute("potholes", potholeDAO.getListOfAllPotholes());
+		List<Pothole> listOfPotholes = potholeDAO.getListOfAllPotholes();
+		req.setAttribute("arrayOfPotholes", potholeDAO.getArrayOfPothole(listOfPotholes));
 	// User user = (User) session.getAttribute("user");
 	return "Users/employeeDashboard";
 	}

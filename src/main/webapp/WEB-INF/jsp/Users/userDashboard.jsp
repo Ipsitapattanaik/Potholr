@@ -70,106 +70,104 @@ img {
 	margin-right: 100px;
 }
 
+
+
+#mapPicture{
+	width: 100px;
+	}
+	
+	
 </style>
 
 
  
 <div class = "userMap" id="map"></div>
 <script>
-	var map;
-	function initMap() {
-		map = new google.maps.Map(document.getElementById('map'), {
-			center : new google.maps.LatLng(40.443360, -80.005557),
-			zoom : 11
-		});
+var map;
+function initMap() {
+map = new google.maps.Map(document.getElementById('map'), {
+center : new google.maps.LatLng(40.443360, -80.005557),
+zoom : 11
+});
 
-		var markers = [];
+    var markers = [];
 
-		var iconBase = 'http://maps.google.com/mapfiles/ms/icons/';
+    var iconBase = 'http://maps.google.com/mapfiles/ms/icons/';
 
-		var icons = {
-			reported : {
-				icon : iconBase + 'red-dot.png'
-			},
-			inspected : {
-				icon : iconBase + 'orange-dot.png'
-			},
-			repaired : {
-				icon : iconBase + 'green-dot.png'
-			}
+    var icons = {
+        reported : {
+            icon : iconBase + 'red-dot.png'
+        },
+        inspected : {
+            icon : iconBase + 'orange-dot.png'
+        },
+        repaired : {
+            icon : iconBase + 'green-dot.png'
+        }
 
-		};
+    };
 
-		var features = [ {
-			position : new google.maps.LatLng(40.455570, -80.019180),
-			type : 'reported'
-		}, {
-			position : new google.maps.LatLng(40.451106, -79.934117),
-			type : 'inspected'
-		}, {
-			position : new google.maps.LatLng(40.456961, -79.975467),
-			type : 'repaired'
-		} ];
 
-		// Create markers.
-		for (var i = 0; i < features.length; i++) {
-			var marker = new google.maps.Marker({
-				position : features[i].position,
-				icon : icons[features[i].type].icon,
-				map : map
-			});
+var features =${arrayOfPotholes};
+    
+    // Create markers.
+    for (var i = 0; i < features.length; i++) {
+        var marker = new google.maps.Marker({
+            position : features[i].position,
+            icon : icons[features[i].type].icon,
+            map : map
+        });
 
-			markers.push(marker);
+        markers.push(marker);
 
-			var infoWindow = new google.maps.InfoWindow;
+        var infoWindow = new google.maps.InfoWindow;
 
-			console.log("Loop number: " + i);
-			var infowincontent = document.createElement('div');
+        console.log("Loop number: " + i);
+        var infowincontent = document.createElement('div');
 
-			var potholePicture = document.createElement('IMG');
-			potholePicture
-					.setAttribute("src",
-							"http://www.overdriveonline.com/wp-content/uploads/sites/8/2014/02/pothole.jpg");
-			potholePicture.setAttribute("height", "100");
-			potholePicture.setAttribute("alt", "The Pulpit Rock");
-			infowincontent.appendChild(potholePicture);
+        var potholePicture = document.createElement('IMG');
 
-			infowincontent.appendChild(document.createElement('br'));
+console.log("Picture is " + features[i].picture);
+potholePicture
+.setAttribute("src", features[i].picture);
+potholePicture.setAttribute("id", "mapPicture");
 
-			var strong = document.createElement('strong');
-			strong.textContent = "pothole " + i;
-			infowincontent.appendChild(strong);
-			infowincontent.appendChild(document.createElement('br'));
-			var text = document.createElement('text');
-			text.textContent = "Address: " + i
-					+ "th street Name Pittsburgh 15206 PA";
-			infowincontent.appendChild(text);
-			console.log("text is " + text.textContent);
+potholePicture.setAttribute("alt", "Pothole picture");
+infowincontent.appendChild(potholePicture);
 
-			infowincontent.appendChild(document.createElement('br'));
+        infowincontent.appendChild(document.createElement('br'));
 
-			var severity = document.createElement('severity');
-			severity.textContent = "Severity: medium";
-			infowincontent.appendChild(severity);
+        var strong = document.createElement('strong');
+        strong.textContent = "pothole id " + features[i].id;
+        infowincontent.appendChild(strong);
+        infowincontent.appendChild(document.createElement('br'));
+        var text = document.createElement('text');
+        text.textContent = "Address: " + features[i].address;
+     	infowincontent.appendChild(text);
+    
+        infowincontent.appendChild(document.createElement('br'));
 
-			google.maps.event.addListener(marker, 'click', handleMarkerClick(
-					marker, i, infoWindow, infowincontent));
+        var severity = document.createElement('severity');
+        severity.textContent = "Severity: "+ features[i].severity;
+        infowincontent.appendChild(severity);
 
-		}
+        google.maps.event.addListener(marker, 'click', handleMarkerClick(
+                marker, i, infoWindow, infowincontent));
 
-	}
-	function handleMarkerClick(marker, index, infoWindow, infowincontent) {
-		return function() {
-			console.log("Clicked on " + index + "th pothole");
-			infoWindow.setContent(infowincontent);
-			infoWindow.open(map, marker);
+    }
 
-		};
-	}
+}
+function handleMarkerClick(marker, index, infoWindow, infowincontent) {
+    return function() {
+        console.log("Clicked on " + index + "th pothole");
+        infoWindow.setContent(infowincontent);
+        infoWindow.open(map, marker)
+    };
+}
 </script>
 <script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
-	
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
+
 </script>
     <br></br>
     <br>
