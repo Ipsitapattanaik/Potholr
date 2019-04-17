@@ -5,6 +5,8 @@
 #mapPicture{
 	width: 100px;
 	}
+	
+
 </style>
 <h1>Welcome to PotholeVania!</h1>
 
@@ -60,7 +62,9 @@
 </p>
 <a href="https://www.publicsource.org/the-potholes-of-pittsburgh/"><h5>Visit for Potholes of Pittsburgh</h5></a>
 <br></br>
-<h4>Let's Point It!</h4>
+<h4 class ='color1'>Red : Reported</h4>
+<h4 class ='color2'>Orange : Inspected</h4>
+<h4 class ='color3'>Green : Repaired</h4>
 
 <div id="map"></div>
 <script>

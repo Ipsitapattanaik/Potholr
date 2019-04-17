@@ -2,7 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
+<style>
+html{
 
+background-image: url("../img/background5.jpg");
+
+}
+</style>
 <c:url var="formAction" value="/Potholes/report" />
 <form method="POST" action="${formAction}">
 	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />

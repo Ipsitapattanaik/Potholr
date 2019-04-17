@@ -125,6 +125,15 @@ margin-right: auto;
 width: 50%;
 
 }
+.color1{
+	text-color: red;
+}
+.color2{
+	text-color: orange;
+}
+.color3{
+	text-color: green;
+}
 
 #errorMessage{
 	color:red;
@@ -138,7 +147,7 @@ width: 50%;
 }
 
 td{
-	background-color :#f6f6f6;
+	background-color :#f8f8f8;
 }
 
 

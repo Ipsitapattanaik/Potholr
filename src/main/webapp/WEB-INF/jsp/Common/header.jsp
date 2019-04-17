@@ -90,7 +90,7 @@
 						<li class="nav-item"><a class="nav-link"
 							href="${newUserHref}">Sign Up</a></li>
 						<c:url var="loginHref" value="/Users/login" />
-						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log
+						<li class="nav-item"><a class="nav-link" href="${loginHref}">Sign
 								In</a></li>
 						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log
 								Out</a></li>
