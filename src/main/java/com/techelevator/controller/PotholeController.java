@@ -69,7 +69,7 @@ public class PotholeController {
 	public String savePothole(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
 		Long userId = Long.parseLong(request.getParameter("userId"));
 	potholeDAO.savePothole(userId, pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng(), pothole.getSeverity());
-
+	flash.addFlashAttribute("ThankYou", "Thank you for reporting a pothole!");
 	
 	User loggedUser = userDAO.searchForUserByUserId(userId);
 	
