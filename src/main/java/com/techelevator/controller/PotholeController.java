@@ -108,6 +108,24 @@ public class PotholeController {
 //		}
 	}
 	
+	@RequestMapping(path = "/Potholes/reportWithGeolocation", method = RequestMethod.GET)
+	public String reportPotholeWithLocation(Model model, HttpSession session, RedirectAttributes attr) {
+	User user = (User)session.getAttribute("user");
+	// System.out.println("In the geolocation method. User is " + user.getUserName());
+	return "/Potholes/reportWithGeolocation";
+	}
+
+	@RequestMapping("/Potholes/thankYouForReporting")
+	public void reportPotholeWithLocation(@RequestParam String latitude, @RequestParam String longitude, @RequestParam String severity,
+	        Model model, HttpSession session, RedirectAttributes attr) {
+	    User user = (User)session.getAttribute("user");
+	    potholeDAO.savePothole(user.getUserId(), 0, "Geolocalized", "Geolocalized", "Geolocalized",00000, "Geolocalized", latitude, longitude, Integer.valueOf(severity));          
+	// System.out.println("In the thank you method. User is " + user.getUserName());
+	// System.out.println("Latitude is "+ latitude);
+	// System.out.println("longitude is "+ longitude);
+	// System.out.println("severity is "+ severity);
+	}
+	
 	
 	
 }

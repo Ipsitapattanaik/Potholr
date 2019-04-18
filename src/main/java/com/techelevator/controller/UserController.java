@@ -166,4 +166,18 @@ public class UserController {
 	return "Users/employeeDashboard";
 	}
 	
+	@RequestMapping("/Users/redirectAfterReport")
+	public String redirectToDashboards(HttpSession session, RedirectAttributes flash) {
+	User user = (User) session.getAttribute("user");
+	flash.addFlashAttribute("ThankYou", "Thank you for reporting a pothole!");
+
+	    if(user.isEmployee()) {
+	        return "redirect:/Users/employeeDashboard";
+
+	            }
+	            else {
+	                return "redirect:/Users/userDashboard";
+	            }
+	}
+	
 }
