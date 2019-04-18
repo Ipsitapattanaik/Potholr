@@ -2,6 +2,11 @@
 
 <c:import url="/WEB-INF/jsp/Common/header.jsp" />
 
+<style>
+p {
+	font-size: 16px;
+}
+</style>
 
 <h1 class="page-title">About Us</h1>
 
