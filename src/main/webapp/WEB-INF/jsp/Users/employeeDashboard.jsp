@@ -157,7 +157,7 @@ function handleMarkerClick(marker, index, infoWindow, infowincontent) {
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
 
 </script>
-
+${ThankYou}
 
 	<c:forEach var="pothole" items="${potholes}">
 		<table class="tableView">
@@ -241,10 +241,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05
 </div>
 </div>
 <button id="Reportpotholetab" type="submit">
-	<a href="/Potholes/report">Report a Pothole</a>
+	<a href="/capstone/Potholes/report">Report a Pothole</a>
 </button>
 
-
+<button id="Reportpotholetab" type="submit"><a href="/capstone/Potholes/reportWithGeolocation" class = "button" >Report a Pothole (with geolocation)</a></button>
 
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />
 

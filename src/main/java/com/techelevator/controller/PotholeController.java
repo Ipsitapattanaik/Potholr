@@ -69,7 +69,7 @@ public class PotholeController {
 	public String savePothole(HttpServletRequest request, @ModelAttribute Pothole pothole, HttpSession session, BindingResult result, ModelMap modelHolder, RedirectAttributes flash) {
 		Long userId = Long.parseLong(request.getParameter("userId"));
 	potholeDAO.savePothole(userId, pothole.getStreetNumber(), pothole.getStreetName(), pothole.getCity(), pothole.getState(), pothole.getZipCode(), pothole.getCountry(), pothole.getLat(), pothole.getLng(), pothole.getSeverity());
-
+	flash.addFlashAttribute("ThankYou", "Thank you for reporting a pothole!");
 	
 	User loggedUser = userDAO.searchForUserByUserId(userId);
 	
@@ -106,6 +106,24 @@ public class PotholeController {
 //		} else {
 //			return "redirect:/User/login";
 //		}
+	}
+	
+	@RequestMapping(path = "/Potholes/reportWithGeolocation", method = RequestMethod.GET)
+	public String reportPotholeWithLocation(Model model, HttpSession session, RedirectAttributes attr) {
+	User user = (User)session.getAttribute("user");
+	// System.out.println("In the geolocation method. User is " + user.getUserName());
+	return "/Potholes/reportWithGeolocation";
+	}
+
+	@RequestMapping("/Potholes/thankYouForReporting")
+	public void reportPotholeWithLocation(@RequestParam String latitude, @RequestParam String longitude, @RequestParam String severity,
+	        Model model, HttpSession session, RedirectAttributes attr) {
+	    User user = (User)session.getAttribute("user");
+	    potholeDAO.savePothole(user.getUserId(), 0, "Geolocalized", "Geolocalized", "Geolocalized",00000, "Geolocalized", latitude, longitude, Integer.valueOf(severity));          
+	// System.out.println("In the thank you method. User is " + user.getUserName());
+	// System.out.println("Latitude is "+ latitude);
+	// System.out.println("longitude is "+ longitude);
+	// System.out.println("severity is "+ severity);
 	}
 	
 	

@@ -47,7 +47,13 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	pothole.getPotholeId()+ ", severity: "+
 	pothole.getSeverity() + "},";
 	}
-	addToArrayString = "[" + addToArrayString.substring(0, addToArrayString.length()-1) + "]";
+	if(listOfPotholes.size() == 0) {
+		System.out.println("There is no pothole in the DB");
+		addToArrayString = "[]";
+	}
+	else {
+		addToArrayString = "[" + addToArrayString.substring(0, addToArrayString.length()-1) + "]";
+	}
 	return addToArrayString;
 	}
 
