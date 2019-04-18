@@ -1,9 +1,11 @@
 package com.techelevator.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.model.MailHelperClass;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.PotholeDAO;
 import com.techelevator.model.User;
@@ -57,7 +60,7 @@ public class UserController {
 	
 	@RequestMapping(path="/Users/new", method=RequestMethod.POST)
 	public String displayDashBoardForNewlyRegisteredUser(@RequestParam(defaultValue = "false") boolean checkbox,
-			@Valid @ModelAttribute User user, BindingResult result, ModelMap modelHolder, RedirectAttributes flash, HttpSession session) {
+			@Valid @ModelAttribute User user, BindingResult result, ModelMap modelHolder, RedirectAttributes flash, HttpSession session) throws UnsupportedEncodingException, MessagingException {
 //		if( ! modelHolder.containsAttribute("user")) {
 //			modelHolder.addAttribute("user", new User());
 //		}
@@ -70,6 +73,9 @@ public class UserController {
 	    	System.out.println("Checkbox is UNCHECKED");
 	    	user.setEmployee(false);
 	    }
+	    
+	    //Uncomment this line to send a confirmation email every time a user registers.
+	    //MailHelperClass.sendMail("PotholeVania", user.getEmail(), "Welcome To PotholeVania", "Welcome to PotholeVania "+user.getUserName()+"!\nYour password is: "+user.getPassword());
 
 		userDAO.saveUser(user.getUserName(), user.getEmail(), user.getPhone(), user.getPassword(), user.isEmployee());
 		User loggedUser = userDAO.searchForUsernameAndPassword(user.getUserName(), user.getPassword());
