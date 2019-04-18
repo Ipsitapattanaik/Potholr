@@ -76,8 +76,14 @@ public class UserController {
 		
 		session.setAttribute("user", loggedUser);
 
+		if(loggedUser.isEmployee()) {
+			return "redirect:/Users/employeeDashboard";
+
+			    }
+			    else {
+			        return "redirect:/Users/userDashboard";
+			    }
 	
-		return "redirect:/Users/userDashboard";
 	}
 	
 	

@@ -14,9 +14,12 @@
 			</div>
 	Check the location, enter the severity of the pothole and click "Submit"
 	<br>
-			<button type="submit" class="btn btn-primary" id="SubmitLocation">Submit</button>
+	
+	<input type="button" value="Submit" class = "button" id="SubmitLocation">	
+	
+<!-- 			<button type="submit" class="btn btn-primary" id="SubmitLocation">Submit</button>
    		
-		</div>
+ -->		</div>
 		<div class="col-sm-4"></div>
 	</div>
 </form>

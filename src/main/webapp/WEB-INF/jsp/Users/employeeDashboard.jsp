@@ -17,6 +17,24 @@
   
 
 }
+#Reportpotholetab 
+{ 
+	
+  /* background-image: url("../img/crackedpothole.png"); */
+  background-position: center;
+  border-radius: 4px;
+  text-color: white;
+  background-color: #ecaf22;
+  font-size: 18px;
+  height: 50px;
+  width: 400px;
+  margin: 10px;
+  border: .5px solid black;
+  box-shadow: 2px 2px #888888;
+  cursor: pointer;
+  
+  
+}
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
@@ -61,6 +79,9 @@ nav ul li {
 
 #mapPicture{
 	width: 100px;
+	}
+.thank{
+	text-size: 16px;
 	}
 	
 </style>
@@ -157,7 +178,7 @@ function handleMarkerClick(marker, index, infoWindow, infowincontent) {
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPTaZLJruIiCmd0kEqPv7S05hN2nWAEU&callback=initMap">
 
 </script>
-${ThankYou}
+<h4 class = "thank">${ThankYou}</h4>
 
 	<c:forEach var="pothole" items="${potholes}">
 		<table class="tableView">
@@ -165,22 +186,19 @@ ${ThankYou}
 				<th>Pothole Id</th>
 				<th>Reported Date</th>
 				<th>Street Name</th>
-			</tr>
-			<tr>
-				<td><c:out value="${pothole.potholeId}" /></td>
-				<td><c:out value="${pothole.reportDate}" /></td>
-				<td><c:out value="${pothole.streetName}" /></td>
-			</tr>
-			<tr>
 				<th>Severity</th>
 				<th>Status</th>
 				<th>Zip Code</th>
 			</tr>
 			<tr>
+				<td><c:out value="${pothole.potholeId}" /></td>
+				<td><c:out value="${pothole.reportDate}" /></td>
+				<td><c:out value="${pothole.streetName}" /></td>
 				<td><c:out value="${pothole.severity}" /></td>
 				<td><c:out value="${pothole.statusCode}" /></td>
 				<td><c:out value="${pothole.zipCode}" /></td>
 			</tr>
+			
 		</table>
 	</c:forEach>
 
@@ -240,11 +258,19 @@ ${ThankYou}
 </div>
 </div>
 </div>
-<button id="Reportpotholetab" type="submit">
-	<a href="/capstone/Potholes/report">Report a Pothole</a>
+
+
+<a href="/capstone/Potholes/report" > <input id="Reportpotholetab" type="button" value="Report a Pothole (with a form)" class = "button"></a>
+
+
+<a href="/capstone/Potholes/reportWithGeolocation" > <input id="Reportpotholetab" type="button" value="Report a Pothole (with geolocation)" class = "button"></a>
+
+
+<!-- <button id="Reportpotholetab" type="submit">
+	<a href="/capstone/Potholes/report">Report a Pothole (with a form)</a>
 </button>
 
 <button id="Reportpotholetab" type="submit"><a href="/capstone/Potholes/reportWithGeolocation" class = "button" >Report a Pothole (with geolocation)</a></button>
-
+ -->
 <c:import url="/WEB-INF/jsp/Common/footer.jsp" />
 

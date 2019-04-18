@@ -39,11 +39,6 @@ background-image: url("../img/background5.jpg");
 					class="form-control" />
 			</div>
 			<div class="form-group">
-				<h3>Photo Upload:</h3>
-				Select a photo to upload: <br /> <input type="file" name="file"
-					size="50" /> <br />
-			</div>
-			<div class="form-group">
 				<input type="hidden" name="userId" id="userId"
 					value="${user.userId}" placeHolder="User ID" class="form-control" />
 			</div>
