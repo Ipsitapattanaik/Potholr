@@ -175,3 +175,8 @@ td{
 .about-paragraph{
     font-size:1.25em;
 }
+
+#message{
+    width:100%;
+    height:200px;
+}
